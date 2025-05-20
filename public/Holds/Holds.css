@@ -1,0 +1,199 @@
+    .book{
+    outline: thick red;
+    background-color:  rgb(98, 26, 26);
+    height: 60vh;
+    outline-width: 1vh;
+    border-radius: 10vh;
+    width: 80vh;
+    padding-left: 5vh;
+    align-items: center;
+    justify-content: flex-start;
+
+    }
+    body{
+    overflow-x: hidden;
+    background-image: url('library-image-but-absolutely-better.jpg');
+    }
+    .header_books{
+    color: white;
+    font-size: 5vh;
+    text-align: center;
+    }
+    .book_img{
+    height: 40vh;
+    width: 30vh;
+    border-radius: 4vh;
+    }
+    .book_tittle{
+    margin-top: 1vh;    
+    margin-right: 10vh;
+    color: white;
+    font-size: 4.5vh;
+    }
+    .book_author{
+    margin-left: 40vh;
+    color: white;
+    width: 40vh;
+    position: absolute;
+    font-size: 3.5vh;
+    }
+    .book_genre{
+    position: absolute;
+    margin-left: 40vh;
+    margin-top: 15vh;
+    color: white;
+    font-size: 3vh;
+    }
+    .book_hold{
+    position: absolute;
+    margin-left: 40vh;
+    margin-top: 20vh;
+    color: white;
+    font-size: 3vh;
+
+    }
+    .book_id{
+    position: absolute;
+    margin-left: 40vh;
+    margin-top: 25vh;
+    color:white;
+    font-size: 3vh;
+    }
+    .wait_time{
+    position: absolute;
+    margin-left: 40vh;
+    margin-top: 30vh;
+    color: white;
+    font-size: 3vh;
+    }
+
+
+    .buttons-profile{
+    background-color: transparent;
+
+    }
+    .welcoming-text{
+    color:rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vh;
+    margin-left: 5vh;
+    position: absolute;
+    background-color: transparent;
+    margin-top: 2vh;
+
+    }
+    .header-square{
+    height: 10vh;
+    width: 250vh;
+    margin-left: -3vh;
+    z-index: -1;
+    margin-top: -2vh;
+    border-radius: 0vh;
+    background-color: rgb(72, 32, 32);
+    cursor: default;
+    position: absolute;
+
+    }
+    .home-button{
+    color: white;
+    margin-left: 120vh;
+    cursor: pointer;
+    margin-top: 1vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vh;
+    transition: text-decoration 5s, text-underline-offset 5s;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    z-index: 0;
+    }
+    .home-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+
+    }
+
+
+    .profile-button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 155vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: 1vh;
+    position: absolute;
+
+
+    }
+    .profile-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+
+
+
+    .holds-button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 137vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: 1vh;
+    position: absolute;
+
+    }
+    a{
+    color: white;
+    text-decoration: none;
+    }
+
+    .anchor-button{
+    color: rgb(255, 255, 255);
+    }
+
+    .holds-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+
+    .sign-out-button{
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 170vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: 1vh;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    }
+    .sign-out-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+    .book_grid{
+    display: grid;
+    gap: 2vh;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .cancel_button{
+    position: absolute;
+    height: 6vh;
+    margin-top: 34vh;
+    margin-left: 60vh;
+    border-radius: 5vh;
+    background-color: black;
+    color: white;
+    border: none;
+    transition: 0.3s;
+    width: 12vh;
+    }
+    .cancel_button:hover{
+    cursor: pointer;
+    }
+    .cancel_button:active{
+    background-color: rgb(86, 4, 4);
+    }

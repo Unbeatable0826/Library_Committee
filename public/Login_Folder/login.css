@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
+.login_image{
+    border-radius: 0vw;
+    margin-left: 34vw;
+    position: relative;
+    z-index: 2;
+    top: -1vw;
+
+
+
+}
+body {
+    overflow: hidden;
+}
+.logintext{
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    top: 9vw;
+    left: 12vw;
+    text-shadow: 1px 0 1px;
+    font-size: 5vh;
+}
+.login_input{
+    position: absolute;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    top: 17vw;
+    left: 10vw;
+    height: 1vw;
+    width: 21vw;
+    border: none;
+}
+.login_line{
+    position: absolute;
+    display: flex;
+    top: 17.5vw;
+    left: 10vw;
+    border: 1px solid red ; 
+    width: 21vw;
+
+    
+}
+.login_input:focus{
+    border: none;
+    outline: none;
+    opacity: 1;
+}
+
+.login_input_password{
+    position: absolute;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    top: 21.5vw;
+    left: 10vw;
+    height: 1vw;
+    width: 21vw ;
+    border: none;
+}
+.login_input_password:focus{
+    outline: none;
+    border: none;
+
+
+
+}
+.password_line{
+    position: absolute;
+    display: flex;
+    top: 22vw;
+    left: 10vw;
+    border: 0.1vw solid red ; 
+    width: 21vw;
+}
+.login_button{
+    position: absolute;
+    display: flex;
+    top: 26vw;
+    left: 11.5vw;
+    background-color: rgb(139, 11, 11);
+    align-items: center;
+    text-align: right 10px;
+    color: white;
+    border: none;
+    width: 16vw;
+    height: 5vh;
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 5vh;
+    transition: opacity 0.15s;
+}
+.login_button:hover{
+    opacity: 0.7;
+
+
+
+
+}
+.login_button.login_button:click{
+    opacity: 0.5;
+
+}
+
+
+.signup_button{
+    position: absolute;
+    display: flex;
+    top: 30vw;
+    left: 11.5vw;
+    background-color: rgb(201, 190, 190);
+    align-items: center;
+    text-align: right 10px;
+    color: rgb(0, 0, 0);
+    border: black;
+    width: 16vw;
+    height: 5vh;
+    cursor: pointer;
+    justify-content: center;
+    outline: black;
+    border-radius: 5vh;
+    transition: opacity 0.15s;
+}
+.signup_button:hover{
+    opacity: 0.7;
+
+}
+.signup_button:active{
+opacity: 0.5;
+}
+

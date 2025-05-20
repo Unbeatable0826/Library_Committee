@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../Book_image.jpeg">
+    <title>Holds</title>
+    <link rel="stylesheet" href="Holds.css">
+    <script type="module" src="Holds.js" defer></script>
+</head>
+<body>
+<div class="buttons-profile">
+    <h3 class="welcoming-text"> <span id="name"></span></h3>
+    <h3 class="home-button"><a href="../Profile/profile-home.html">Home</a></h3>
+    <h3 class="profile-button"><a href="../User_profile/User_profile.html">Profile</a></h3>
+    <h3 class="holds-button"><a href="../Holds/holds.html">Holds</a></h3>
+    <h3 class="sign-out-button">Sign Out</h3>
+</div>
+    <div class="header-square"></div>
+    <br>
+    <br>
+    <br>
+    <h1 class="header_books">Books Checked Out & On Hold</h1>
+    
+<template id="book_template">
+    <div class="book">
+        <br>
+        <h1 class="book_tittle"> Title: The Sisters Grimm The Problem Child</h1>
+        <h1 class="book_author"> By: Michael Buckley</h1>
+        <h2 class="book_genre"> Genre: Juvenile Fiction</h2>
+        <h2 class="book_hold"> Type: Pickup</h2>
+        <h2 class="book_id"> BookID:  5</h2>
+        <h2 class="wait_time"> Estimated Date: 5/22/2025</h2>
+        <button class="cancel_button" data-book-id="">Cancel Pickup </button>
+
+        <img src="https://covers.openlibrary.org/b/olid/OL7998640M.jpg" width="190vh" class="book_img">
+        
+    </div>
+    <br>
+    <br>
+</template>
+<div id="book_grid" class="book_grid"></div>
+
+
+
+
+
+
+</body>
+</html>

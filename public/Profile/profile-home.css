@@ -1,0 +1,353 @@
+    body{
+    overflow-x: hidden;
+    background-image: url('library-image-but-absolutely-better.jpg');
+    }
+    .buttons-profile{
+    background-color: transparent;
+
+    }
+    .welcoming-text{
+    color:rgb(255, 255, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vh;
+    margin-left: 5vh;
+    position: absolute;
+    background-color: transparent;
+    margin-top: -18vh;
+
+    }
+    a{
+    color: white;
+    text-decoration: none;
+    }
+    .header-square{
+    height: 10vh;
+    width: 250vh;
+    margin-left: -3vh;
+    z-index: -1;
+    margin-top: -22vh;
+    border-radius: 0vh;
+    background-color: rgb(72, 32, 32);
+    cursor: default;
+    position: absolute;
+
+    }
+    .anchor-button{
+    color: rgb(255, 255, 255);
+    }
+    .home-button{
+    color: white;
+    margin-left: 120vh;
+    cursor: pointer;
+    margin-top: -18vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vh;
+    transition: text-decoration 5s, text-underline-offset 5s;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    z-index: 0;
+    }
+    .home-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+
+    }
+    .profile-button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 155vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: -18vh;
+    position: absolute;
+
+
+    }
+    .profile-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+    .holds-button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 137vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: -18vh;
+    position: absolute;
+
+    }
+    .holds-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+    .sign-out-button{
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 170vh;
+    color: white;
+    cursor: pointer;
+    font-size: 3vh;
+    margin-top: -18vh;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    }
+    .sign-out-button:hover{
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+    }
+    .search-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    margin-top: 20vh;
+    width: 100vh;
+    font-size: 5vh;
+    margin-left: 25%;
+    text-align: center;
+    color: rgb(255, 255, 255)   
+    }
+    .label-search{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .search{
+    height: 5vh;
+    text-align: left;
+
+    font-size: 3vh;
+    border-color: red;
+    color: rgb(201, 85, 26);
+
+    }
+    .user-cards{
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(36vh, 1fr));
+    gap: 0vh;
+    position: relative;
+    margin-left: 40vh;
+    }
+    .card{
+    /*background-color: rgb(98, 34, 34);
+    width: 50vh;
+    height: 27vh;
+    font-size: large;  
+    color: white; 
+    padding-left: 1vh;
+    border-radius: 4vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    */padding-top: 1vh;
+    cursor: pointer;
+    }
+    .img{
+    border-radius: 3vh;
+    }
+    .header{
+    margin-top: 1vh;    
+    }
+    .author{
+    margin-top: 4vh;
+    }
+    .genre{
+    margin-top: 4vh;
+    }
+    .available{
+    margin-top: 4vh;
+    }
+    .hide{
+    display: none;
+    }
+
+
+    ::-webkit-scrollbar {
+    width: 2.5vh; 
+    }
+
+
+    ::-webkit-scrollbar-track {
+    background: #431e07ad;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background:  rgb(72, 32, 32);
+    border-radius: 10px;
+    }
+    .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    }
+
+
+
+    .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+
+    }
+
+
+    .modal-content {
+    background-color: brown;
+    margin: 15% auto; 
+    padding: 20px;
+    min-height: 80vh;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 5vh;
+    }
+
+
+    .close {
+    color: #aaa;
+    float: right;
+    margin-right: -4vh;
+    font-size: 40px;
+    font-weight: bold;
+    width: 7vh;
+    margin-top: -2vh;
+    transition: color 0.2s;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+    .pick-up{
+    display: block;
+    position: absolute;
+    margin-left: 91vh;
+    margin-top: -15vh;
+    z-index: 2; 
+    color: white;
+    width: 30vh;
+    height: 8vh;
+    background-color: rgb(0, 0, 0);
+    font-size:3vh;
+    border-radius: 3vh;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+    }
+    .pick-up:hover{
+    opacity: 0.8;
+    }
+    .pick-up:active{
+    opacity: 0.5;
+    }
+    .picture_book{
+    height: 70vh;
+    border-radius: 3vh;
+    position: inherit;
+    max-width: 60vh;
+    }
+    .tittle1{
+    font-size: 7vh;
+    color: white;
+    margin-left: 10vh;
+    }
+    .bookID{
+    position: absolute;
+    color: rgb(255, 255, 255);;
+    font-size: 3vh;
+    margin-top: 20vh;
+    margin-left: 30vh;
+    }
+    .holds-number{
+    margin-left: 30vh;
+    position: absolute;
+    margin-top: 25vh;
+    font-size: 3vh;
+    color: rgb(255, 255, 255);
+    }
+    .author1{
+    margin-left: 30vh;
+    position:absolute;
+    font-size: 5vh;
+    width: 70vh;
+    margin-top: 5vh;
+    color: rgb(255, 255, 255);
+
+    }
+    .summary1{
+    margin-top: 30vh;
+    position: absolute;
+    width: 50vh;
+    margin-left: 30vh;
+    color: rgb(255, 255, 255);
+    font-size: 2.7vh;
+    height: 22vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    }
+    .summary1::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #512929;
+    border: 1px solid #000;
+    }
+    .summary1::-webkit-scrollbar {
+    width: 1.5vh;
+    }
+
+    .Genre{
+    position: absolute;
+    font-size: 3vh;
+    margin-top: 15vh;
+    margin-left: 30vh;
+    color: rgb(255,255,255);
+
+
+    }
+    .checkbox_square{
+    position: absolute;
+    margin-top: 10vh;
+    background-color: rgb(99, 34, 34);
+    height: 40vh;
+    width: 35vh;
+    border-radius: 5vh;
+    }
+    .checkbox_text{
+    position: absolute;
+    color: white;
+    font-size: 3vh;
+    margin-top: 13vh;
+    margin-left: 10vh;
+    }
+    .Juvenile_FICTION{
+    position: absolute;
+    margin-top: 25vh;
+    color: white;
+    margin-left: 3vh;
+    font-size: 3vh;
+
+    }
+    .Fiction{
+    position: absolute;
+    margin-top: 30vh;
+    color: white;
+    margin-left: 3vh;
+    font-size: 3vh;
+    }
+    .Young_Adult{
+    position: absolute;
+    margin-top: 35vh;
+    color: white;
+    margin-left: 3vh;
+    font-size: 3vh;
+    }

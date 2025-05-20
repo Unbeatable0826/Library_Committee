@@ -1,0 +1,139 @@
+ body {
+    overflow: hidden;
+    background-image: url('bookcase-books-bookshelves-159711.jpg');
+    background-position: auto;
+    background-size: auto;
+    display: flex;
+    justify-content: center;
+}
+.signup_text{
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 6vh;
+    background-clip: content-box;   
+    text-align: center;
+    z-index: 0;
+    border: none;
+    margin-top: 2%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.email{
+    margin-left: 10%;
+    height: 4vh;
+    width: 70%;
+    border-radius: 3vh;
+    border-color: burlywood;
+    padding-left: 2vh;
+}
+.password{
+    height: 4vh;
+    width: 70%;
+    margin-left: 10%;
+    margin-top: 7%;
+    border-radius: 3vh;
+    border-color: burlywood;
+    padding-left: 2vh;
+}
+.name{
+    height: 4vh;
+    width: 70%;
+    margin-top: 7%;
+    margin-left: 10%;
+    padding-left: 2vh;
+    border-radius:3vh;
+    border-color: burlywood;
+}
+.submit-button{
+    height: 6vh;
+    width: 35%;
+    margin-top: 7%;
+    margin-left: 30%;
+    border-radius: 3vh;
+    border-color: rgb(81, 50, 0);
+    background-color: rgba(245, 192, 18, 0.246) ;
+    color: rgb(63, 68, 6);
+    cursor: pointer;
+    transition: opacity 0.15s;
+    justify-content: center;
+}
+.submit-button:hover{
+opacity: 0.7;
+cursor: pointer;
+}
+.submit-button:active{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.signup_square{
+    height: 80%;
+    width: 38%;
+    margin-top: 6vw;
+    z-index: -1;
+    background-color: rgb(255, 255, 255);
+    position:absolute;
+    border-radius: 8vw; 
+}
+.Login_redirect{
+    height: 2vw;
+    width: 50%;
+    margin-left: 22%;
+    margin-top: 3%;
+    font-size: 4vh;     
+    text-align: center;
+}
+.Login_redirect_text:hover{
+    opacity: 0.7;
+}
+.Login_redirect_text:active{
+opacity: 0.5;
+}
+@media screen and (max-width: 600px){
+    .signup_square{
+        width: 80%;
+        height: 60%;
+        margin-top: 30%;
+        border-radius: 7vh;
+    }
+    .signup_text{
+        padding-top: 5%;
+        font-size: 4vh;
+        width: 90%;
+        margin-left: 6%;
+    }
+    .Login_redirect{
+        font-size: 2.5vh;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
