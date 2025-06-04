@@ -123,6 +123,9 @@ body {
 .signup_button:active{
 opacity: 0.5;
 }
+.register_link{
+        text-decoration: none !important;
+}
 @media screen and (max-width: 600px) {
     html{
         overflow: hidden;
@@ -142,7 +145,7 @@ opacity: 0.5;
         margin-left: 10%;
         margin-top: 45%;
         width: 80%;
-        height: 55%;
+        height: 50vh;
         border-radius: 10vw;
     }
     .logintext{

@@ -192,16 +192,103 @@ signOutButton.addEventListener('click', () => {
         window.location.href = '../Login_Folder/login.html'; 
     });
 });
+const mobile_signout = document.querySelector('.sign-out-mobile');
+mobile_signout.addEventListener('click', () => {
+    signOut(auth).then(() => {
+        window.location.href = '../Login_Folder/login.html'; 
+    });
+});
 
+
+
+
+
+const nav_display = document.querySelector('.nav_display');
+
+const nav_opener = document.querySelector('.nav_opener');
+const line1 = document.querySelector('.line1')
+const line2 = document.querySelector('.line2')
+const line3 = document.querySelector('.line3')
+let open = false;
+nav_opener.addEventListener('click', (event) => {
+    if (!open){
+        nav_display.style.marginLeft = '-30vw';
+        line3.style.marginTop = '10vw'
+        line2.style.marginLeft = '-100vw';
+        line1.style.transform = 'rotate(45deg)'
+        line3.style.transform = 'rotate(135deg)'
+        
+        open = !open
+    }else{
+        nav_display.style.marginLeft = '-70vw'
+        line3.style.marginTop = '14vw';
+        line2.style.marginLeft = '70vw';
+        line3.style.transform = 'rotate(0deg)';
+        line1.style.transform = 'rotate(0deg)';
+        open = !open
+    }
+
+    
+})
+// nav_display.addEventListener('click', (event) => {
+//     if (!open){
+//                 nav_display.style.marginLeft = '-30vw';
+//         line3.style.marginTop = '10vw'
+//         line2.style.marginLeft = '-100vw';
+//         line1.style.transform = 'rotate(45deg)'
+//         line3.style.transform = 'rotate(135deg)'
+        
+//         open = !open
+//         event.stopPropagation();
+//     }
+// })
+const nav_dd = document.getElementsByClassName("nav_display")[0];
+// window.onclick = function(event) {
+//   if (event.target == nav_display) {
+//         nav_display.style.marginLeft = '-70vw'
+//         line3.style.marginTop = '14vw';
+//         line2.style.visibility = 'visible';
+//         line3.style.transform = 'rotate(0deg)';
+//         line1.style.transform = 'rotate(0deg)';
+//         open = !open;
+//   }
+// }
 const modal = document.getElementById("myModal");
 const close_modal = document.getElementsByClassName("close")[0];
 close_modal.onclick = function() {
     modal.style.display = "none";
-  }
+}
 
- window.onclick = function(event) {
+
+
+
+window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if (open && event.target !== nav_display && !nav_display.contains(event.target)){
+        nav_display.style.marginLeft = '-70vw'
+        line3.style.marginTop = '14vw';
+        line2.style.marginLeft = '70vw';
+        line3.style.transform = 'rotate(0deg)';
+        line1.style.transform = 'rotate(0deg)';
+        open = !open;
+  }else if (!open && event.target === nav_display && nav_display.contains(event.target)){
+        nav_display.style.marginLeft = '-30vw';
+        line3.style.marginTop = '10vw'
+        line2.style.marginLeft = '-100vw';
+        line1.style.transform = 'rotate(45deg)'
+        line3.style.transform = 'rotate(135deg)'
+        
+        open = !open
+
+
+
+
+
+
+
+
+
   }
 }
 const modal_tittle = document.querySelector(".tittle1");
@@ -234,6 +321,7 @@ bookCardContainer.addEventListener('click', (event) => {
         if (book.holds[0] == "") {
             modal_holds_number.style.display = "none";
         } else {
+            modal_holds_number.style.display = "inline";
             var date = new Date();
             date.setDate(date.getDate() + book.holds.length * 14)
             modal_holds_number.textContent = "Current Holds: " + book.holds.length + " Estimated Date: " + date.toLocaleDateString(); 
@@ -252,10 +340,12 @@ bookCardContainer.addEventListener('click', (event) => {
                 modal_picture.src = "https://th.bing.com/th/id/OIP.SQOMCf7wp-hciCmo3Sr4OQHaHa?rs=1&pid=ImgDetMain";
           }
         
-        if (book.summary != ""){
-            modal_summary.textContent = "Book Description:  " + book.summary;
-        }else{
+        if (book.summary === ""){
             modal_summary.style.display = "none";
+            
+        }else{
+            modal_summary.style.display = 'inline';
+            modal_summary.textContent = "Book Description:  " + book.summary;
         }
         // if (modal_summary != ""){ }
         modal.style.display = "block";

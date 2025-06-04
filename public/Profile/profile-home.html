@@ -8,34 +8,66 @@
     <link rel="icon" type="image/x-icon" href="../Book_image.jpeg">
 </head>
 <body>
-    <div class="buttons-profile">
-    <h3 class="welcoming-text"> <span id="name"></span></h3>
-    <h3 class="home-button"><a href="profile-home.html">Home</a></h3>
-    <h3 class="profile-button"><a href="../User_profile/User_profile.html">Profile</a></h3>
-    <h3 class="holds-button"><a href="../Holds/holds.html">Holds</a></h3>
-    <h3 class="sign-out-button">Sign Out</h3>
-</div>
     
-    <div class="header-square"></div>
-    <div class="search-wrapper">
-        <label for="search" class="label-search">Search For Books At the Basis Library</label>
-        <input type="search" id="search" class="search" >
+        <!-- <div class="buttons-profile">
+        <h3 class="welcoming-text"> <span id="name"></span></h3>
+        <h3 class="home-button"><a href="profile-home.html">Home</a></h3>
+        <h3 class="profile-button"><a href="../User_profile/User_profile.html">Profile</a></h3>
+        <h3 class="holds-button"><a href="../Holds/holds.html">Holds</a></h3>
+        <h3 class="sign-out-button">Sign Out</h3> -->
+
+    
+
+    
+    <div class="header-square">
+        <div class="buttons-profile">
+        <h3 class="welcoming-text"> <span id="name"></span></h3> </div>
+        <h3 class="home-button"><a href="profile-home.html">Home</a></h3>
+        <h3 class="profile-button"><a href="../User_profile/User_profile.html">Profile</a></h3>
+        <h3 class="holds-button"><a href="../Holds/holds.html">Holds</a></h3>
+        <h3 class="sign-out-button">Sign Out</h3>
     </div>
-    <div class="checkbox_square"></div>
-    <h3 class="checkbox_text">Book Genre</h3>
-    <div class="Juvenile_FICTION">
-    <input type="checkbox" id="JFIC" name="JFIC"  value="JFIC" class="JFIC">
-    <label for="JFIC" >Juvenile Fiction</label><br>
+    <div class="mobile_view">
+        <div class="nav_display">
+            <div class="nav_opener">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <div class="hyperlink_information">
+                <h3 class="welcoming-mobile"> <span id="name"></span></h3> 
+                <h3 class="home-mobile"><a href="profile-home.html">Home</a></h3>
+                <h3 class="profile-mobile"><a href="../User_profile/User_profile.html">Profile</a></h3>
+                <h3 class="holds-mobile"><a href="../Holds/holds.html">Holds</a></h3>
+                <h3 class="sign-out-mobile">Sign Out</h3>
+            </div>
+        </div>
     </div>
-    <div class="Fiction">
-        <input type="checkbox" id="FIC" name="FIC"  value="FIC" class="FIC">
-        <label for="FIC" >Fiction</label><br>
+        <div class="search-wrapper">
+            <label for="search" class="label-search">Search For Books At the Basis Library</label>
+            <input type="search" id="search" class="search" >
+        </div>
     </div>
-    <div class="Young_Adult">
-        <input type="checkbox" id="YA" name="YA" class="YA" value="YA">
-        <label for="YA" >Young Adult</label><br>
+    
+    <div class="checkbox_square">
+        <h3 class="checkbox_text">Book Genre</h3>
+        <div class="Juvenile_FICTION">
+            <input type="checkbox" id="JFIC" name="JFIC"  value="JFIC" class="JFIC">
+            <label for="JFIC" >Juvenile Fiction</label><br>
+        </div>
+        <div class="Fiction">
+            <input type="checkbox" id="FIC" name="FIC"  value="FIC" class="FIC">
+            <label for="FIC" >Fiction</label><br>
+        </div>
+        <div class="Young_Adult">
+            <input type="checkbox" id="YA" name="YA" class="YA" value="YA">
+            <label for="YA" >Young Adult</label><br>
+        </div>
     </div>
-<div class="user-cards" data-books-cards></div>
+
+    <div class="user-cards" data-books-cards>
+        
+    </div>
 
 
     <template data-book-template>
@@ -50,22 +82,22 @@
 
         <div class="modal-content">
           <span class="close">&times;</span>
-          <span class="tittle1">Hi, how are you doing</span>
+
+          <span class="tittle1">Hi, how are you doing, and ummm also If you are seeing this, something went horribly wrong</span>
           <br>
-          <img src="" class="picture_book">
-          <span class="author1">How are authors doing</span>
-          <span class="Genre">Hello, this is the genre</span>
-          <span class="bookID">Here is the Books ID</span>
-          <span class="holds-number">This is the number of holds</span>
-          <button class="pick-up" >Pick Up</button>
-          <span class="summary1">Summary</span>
+            <div class="content_inside">
+                <img src="" class="picture_book">
+                <div class="information">
+                    <span class="author1">How are authors doing</span>
+                    <span class="Genre">Hello, this is the genre</span>
+                    <span class="bookID">Here is the Books ID</span>
+                    <span class="holds-number">This is the number of holds</span>
+                    <span class="summary1">Summary</span>
+                    <button class="pick-up" >Pick Up</button>
+                </div>
+            </div>
         </div>
-      </div>
-
-
-
-
-
+    </div>
     
     <script type="module" src="profile.js" defer></script>
 </body>
