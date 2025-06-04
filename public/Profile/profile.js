@@ -37,7 +37,7 @@ const userCardTemplate = document.querySelector("[data-book-template]")
 const bookCardContainer = document.querySelector("[data-books-cards]")
 let userID;
 let userDocRef;
-
+const mobile_nameElem = document.getElementById("mobile_name");
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         try {
@@ -48,6 +48,7 @@ onAuthStateChanged(auth, async (user) => {
             if (docSnapshot.exists()) {
                 const userData = docSnapshot.data();
                 nameElem.textContent = "Welcome Back, " + userData.name.substr(0, 20);
+                mobile_nameElem.textContent = "Welcome Back, " + userData.name.substr(0, 20);
                 book1u = userData.book1;
                 book2u = userData.book2;
                 book3u = userData.book3;

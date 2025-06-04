@@ -12,6 +12,7 @@
         font-size: 1.75vw;
         margin-left: 5vh;
         background-color: transparent;
+        cursor: text;
 
         }
         .navbar{
@@ -103,6 +104,7 @@
         color: rgb(255, 255, 255)   
         }
         .label-search{
+            cursor: text;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
         .search{
@@ -214,13 +216,12 @@
         cursor: pointer;
         }
         .pick-up{
-        position: absolute;
         z-index: 2; 
         color: white;
         width: 15vw;
         height: 4vw;
-        margin-left: 10%;
-        margin-top: 32%;
+        margin-left: 23%;
+        margin-top: 5%;
         background-color: rgb(0, 0, 0);
         font-size:3vh;
         border-radius: 3vh;
@@ -244,7 +245,7 @@
         max-width: 60vh;
         }
         .tittle1{
-        font-size: 7vh;
+        font-size: 3.5vw;
         color: white;
         margin-left: 10vh;
 
@@ -260,7 +261,7 @@
         color: rgb(255, 255, 255);
         }
         .author1{
-        margin-top: 10%;
+        margin-top: 5%;
         font-size: 3vw;
         color: rgb(255, 255, 255);
         }
@@ -268,7 +269,7 @@
         margin-top: 5%;
         width: 80%;
         color: rgb(255, 255, 255);
-        font-size: 2.7vh;
+        font-size: 1vw;
         height: 30%;
         overflow: scroll;
         overflow-x: hidden;
@@ -455,6 +456,11 @@
                 z-index: 5;
                 font-size: 6vw;
             }
+            .welcoming-mobile{
+                width: 35vw;
+                font-size: 4vw;
+                color: rgb(220, 167, 167);
+            }
             .home-mobile:hover{
                 text-decoration: underline;
                 text-underline-offset: 2vw;
@@ -473,6 +479,63 @@
             .sign-out-mobile:hover{
                 text-decoration: underline;
                 text-underline-offset: 2vw;
+            }
+            .home-mobile{
+                margin-top: 2%;
+            }
+            .modal{
+                z-index: 10;
+            }
+            .picture_book{
+                margin-top: 5%;
+                margin-left: 10%;
+                width: 60vw;
+                height: fit-content;
+            }
+            .tittle1{
+                font-size: 6vw;
+                margin-top: 30%;
+                margin-left: 0%;
+            }
+            .author1{
+                font-size: 7vw;
+            }
+            .Genre{
+                font-size: 5vw;
+            }
+            .bookID{
+                font-size: 4vw;
+            }
+            .pick-up{
+                min-height: 13vw;
+                width: 50%;
+                margin-left: 23.5%;
+                position: relative;
+                margin-top: 10%;
+
+            }
+            .summary1{
+                font-size: 4vw;
+                width: fit-content;
+                height: 30vw;
+            }
+            .holds-number{
+                font-size: 4vw;
+            }
+            .content_inside{
+                flex-direction: column;
+            }
+         
+            .information{
+                margin-left: 5%;
+                width: fit-content;
+                height: fit-content;
+            }
+            .close{
+                font-size: 15vw;
+            }
+            .content_inside{
+                width: 100%;
             }
 
         }
