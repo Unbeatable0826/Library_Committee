@@ -9,17 +9,18 @@
 .signup_text{
     color: rgb(0, 0, 0);
     background-color: transparent;
-    width: 70%;
-    margin-left: 15%;
-    font-size: 6vh;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 3vw;
     background-clip: content-box;   
     text-align: center;
     z-index: 0;
     border: none;
-    margin-top: 2%;
+    margin-top: 4%;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .email{
+    margin-top: 5%;
     margin-left: 10%;
     height: 4vh;
     width: 70%;
@@ -67,20 +68,20 @@ cursor: pointer;
     cursor: pointer;
 }
 .signup_square{
-    height: 80%;
+    height: fit-content;
     width: 38%;
-    margin-top: 6vw;
+    margin-top: 4vw;
     z-index: -1;
     background-color: rgb(255, 255, 255);
     position:absolute;
     border-radius: 8vw; 
 }
 .Login_redirect{
-    height: 2vw;
-    width: 50%;
+    height: 5vw;
+    width: 60%;
     margin-left: 22%;
     margin-top: 3%;
-    font-size: 4vh;     
+    font-size: 2vw;     
     text-align: center;
 }
 .Login_redirect_text:hover{
@@ -92,19 +93,20 @@ opacity: 0.5;
 @media screen and (max-width: 600px){
     .signup_square{
         width: 80%;
-        height: 60%;
+        height: fit-content;
         margin-top: 30%;
         border-radius: 7vh;
     }
     .signup_text{
         padding-top: 5%;
-        font-size: 4vh;
+        font-size: 7vw;
         width: 90%;
         margin-left: 6%;
     }
     .Login_redirect{
-        font-size: 2vh;
+        font-size: 4vw;
         width: 80%;
+        height: 15%;    
         margin-left: 10%;
     }
 }

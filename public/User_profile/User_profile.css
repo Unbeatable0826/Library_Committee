@@ -2,116 +2,114 @@ body{
     overflow-x: hidden;
     background-image: url('library-image-but-absolutely-better.jpg');
 }
-.welcoming-text{
-    color:rgb(255, 255, 255);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3vh;
-    margin-left: 5vh;
-    position: absolute;
-    background-color: transparent;
-    margin-top: 2vh;
+        .mobile_view{
+            visibility: hidden;
+            display: none;
+        }
+        .buttons-profile{
+        background-color: transparent;
 
-}
-.header-square{
-    height: 10vh;
-    width: 250vh;
-    margin-left: -3vh;
-    z-index: -1;
-    margin-top: -2vh;
-    border-radius: 0vh;
-    background-color: rgb(72, 32, 32);
-    cursor: default;
-    position: absolute;
+        }
+        .welcoming-text{
+        color:rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.75vw;
+        margin-left: 2vw;
+        background-color: transparent;
+        cursor: text;
 
-}
-.home-button{
-    color: white;
-    margin-left: 120vh;
-    cursor: pointer;
-    margin-top: 1vh;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3vh;
-    transition: text-decoration 5s, text-underline-offset 5s;
+        }
+        .navbar{
+            display: flex;
+        }
+        a{
+        color: white;
+        text-decoration: none;
+        }
+        .header-square{
+        height: 10%;
+        width: 105%;
+        margin-left: -1%;
+        margin-top: -1%;
+        z-index: -1;
+        border-radius: 0vh;
+        background-color: rgb(72, 32, 32);
+        cursor: default;
+        display: flex;
+        }
+        .anchor-button{
+        color: rgb(255, 255, 255);
+        }
+        .home-button{
+        margin-left: 38%;
+        color: white;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.5vw;
+        transition: text-decoration 5s, text-underline-offset 5s;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        margin-top: 2%;
+        z-index: 0;
+        }
+        .home-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
 
-    background-color: transparent;
-    outline: none;
-    border: none;
-    position: absolute;
-    z-index: 0;
-}
-.home-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-
-}
-.profile-button{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 155vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-
-
-}
-.profile-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-}
-
-.holds-button{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 137vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-
-}
-a{
-    color: white;
-    text-decoration: none;
-}
-.anchor-button{
-    color: rgb(255, 255, 255);
-}
-
-.holds-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-}
-.sign-out-button{
-
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 170vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-    background-color: transparent;
-    border: none;
-}
-.sign-out-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-}
+        }
+        .profile-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5vw;
+        margin-left: 5%;
+        margin-top: 2%;
+        }
+        .profile-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
+        .holds-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        margin-top: 2%;
+        font-size: 1.5vw;
+        margin-left: 5%;
+        }
+        .holds-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
+        .sign-out-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5vw;
+        background-color: transparent;
+        border: none;
+        margin-top: 2%;
+        margin-left: 4%;
+        }
+        .sign-out-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
 .user_square{
-    height: 70vh;
-    width: 150vh;
-    margin-left: 20vh;
+    height: 30vw;
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 14%;
     z-index: -1;
-    margin-top: 20vh;
     border-radius: 0vh;
     background-color: rgba(255, 255, 255, 0.926);
     cursor: default;
-    position: absolute;
+
     border-radius: 10vh;    
 }
 .Profile_text{
-    position: absolute;
+
     margin-left: 60vh;
     font-size: 6vh;
     margin-top: 1vh;
@@ -121,17 +119,17 @@ border-radius: 4vh;
 height: 3vh;
 margin-left: 8vh;
 width: 40vh;
-position: absolute;
+
 margin-top: 17vh;
 padding: 5px;
 }
 .User_Email{
-position: absolute;
+
 margin-top: 10vh;
 margin-left: 10vh;
 }
 .Books_checked{
-    position: absolute;
+
     margin-left: 80vh;
 }
 .Books_hold{
@@ -148,7 +146,7 @@ margin-left: 10vh;
     text-decoration-line: underline;
 }
 .user_name{
-    position: absolute;
+
     margin-top: 29vh;
     margin-left: 10vh;
     height: 3vh;
@@ -158,7 +156,7 @@ margin-left: 10vh;
     margin-left: 8vh;
 }
 .user_namet{
-    position: absolute;
+
     margin-top: 27vh;
     margin-left: 10vh;
 }
@@ -169,7 +167,7 @@ margin-left: 10vh;
     height: 5vh;
     width: 10vh;
     border-radius: 3vh;
-    position: absolute;
+
     margin-top: 40vh;
     margin-left: 39vh;
 }
@@ -180,7 +178,6 @@ margin-left: 10vh;
     opacity: 0.7;
 }
 .password_reset{
-    position: absolute;
     margin-top: 1.5vh;
     margin-left: 80vh;
     width: 60vh;
@@ -201,11 +198,166 @@ margin-left: 10vh;
     opacity: 0.7;
 }
 .thingy{
-    position: absolute;
+
     color: brown;
 }
 .contact_info{
-position:absolute;
-margin-left: 80vh;
-margin-top: 10vh;
+
+}
+@media screen and (max-width: 600px){
+    html, body {
+        position: absolute !important;
+        display: block !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        height: 100%;
+    }
+    .header-square{
+        visibility: hidden;
+        display: none;
+    }
+    .mobile_view{
+        display: flex;
+    }
+    .nav_display{
+        background-color: #512929;
+        height: 120%;
+        width: 80vw;
+        z-index: 2;
+        position: fixed;
+        margin-top: 0vw;
+        margin-left: -70vw;
+        transition: margin-left 1s;
+    }
+    .user-cards{
+        margin-left: 30%;
+    }
+    .line1{
+        background-color: white;
+        margin-top: 10vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        transition: all 1s;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        
+    }
+    .line2{
+        background-color: white;
+        margin-top: 12vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-tap-highlight-color: transparent;
+        transition: all 1s;
+    }
+    .line3{
+        background-color: white;
+        margin-top: 14vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        transition: all 1s;
+    }
+    .nav_opener{
+        margin-top: 2vw;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .nav_opener:focus{
+        outline: none !important;
+        box-shadow: none;
+    }
+    .nav_opener:active{
+        opacity: 0.5;
+    }
+    .nav_opener:active{
+        user-select:none;
+        color: transparent;
+    }
+    .mobile_view{
+        margin-top: -10vw;
+        visibility: visible;
+    }
+    * {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+        -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+        outline: none !important;
+    }
+    welcoming-mobile{
+        width: 35vw;
+        font-size: 4vw;
+        color: rgb(220, 167, 167);
+    }
+    .hyperlink_information{
+        position: absolute;
+        margin-left: 40%;
+        margin-top: 20%;
+        color: white;
+        height: 100vw;
+
+        width: 30vw;
+        z-index: 5;
+        font-size: 6vw;
+    }
+    .home-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .profile-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .holds-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;                
+    }
+    .sign-out-mobile{
+        width: 32vw;
+    }
+    .sign-out-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .home-mobile{
+        margin-top: 2%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
