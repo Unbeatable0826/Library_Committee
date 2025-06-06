@@ -9,6 +9,7 @@
     <script type="module" src="Usser_profile.js" defer></script>
 </head>
 <body>
+    <!-- The upper nav Bar as well as the one for mobile viewing -->
     <div class="header-square">
         <div class="buttons-profile">
         <h3 class="welcoming-text"> <span id="name"></span></h3> </div>
@@ -33,19 +34,30 @@
             </div>
         </div>
     </div>
-        <div class="user_square">
-    <form>
+    <!-- Actual Code for the User Profile Section -->
+    <div class="user_square">
         <h1 class="Profile_text">User Profile</h1>
-        <h1 class="User_Email">Email Address</h1>
-        <h1 class="user_namet"> Name </h1>
-           <input class="login_input" type="email" id="email" name="email" placeholder="Enter your Email" required value=""><br><br>
-           <input class="user_name" type="name" id="user_name" placeholder="Enter your Name" required value=""><br>
-           <input type="submit" class="login_button" id="login" value="Save">
-           </form>
-           <h1 class="Books_checked"></h1>
-           <h1 class="Books_hold"></h1>
-           <h3 class="info">Click <strong><a class="infof" href="../Holds/holds.html">here</a></strong> for more information on holds </h3>
-        <h3 class="password_reset">If you would like to change or reset your password, please click <button class="password_reset_but"><strong>here</strong></button></h3>
-           <h3 class="contact_info"> Contact Email: librarybasisscottsdale@gmail.com </h3>
+        <!-- flex Box with sec1 -->
+         <div class="container">
+            <div class="sec1">
+                <form>
+                    <h1 class="User_Email">Email Address</h1>
+                    <input class="login_input" type="email" id="email" name="email" placeholder="Enter your Email" required value=""><br><br>
+                    <h1 class="user_namet"> Name </h1>
+                    <input class="user_name" type="name" id="user_name" placeholder="Enter your Name" required value=""><br>
+                    <input type="submit" class="login_button" id="login" value="Save">
+                </form>
+            </div>
+        <!-- Just common information  -->
+            <div class="sec2">
+                <h1 class="Books_checked"></h1>
+                <h1 class="Books_hold"></h1>
+                <h3 class="info">Click <strong><a class="infof" href="../Holds/holds.html">here</a></strong> for more information on holds </h3>
+                <h3 class="password_reset">If you would like to change or reset your password, please click <button class="password_reset_but"><strong>here</strong></button></h3>
+                <h3 class="contact_info"> Contact Email: librarybasisscottsdale@gmail.com </h3>
+            </div>
+         </div>
+         <h1 class="white_space">H</h1>
+    </div>
 </body>
 </html>

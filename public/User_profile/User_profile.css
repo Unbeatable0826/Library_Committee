@@ -96,80 +96,60 @@ body{
         text-decoration: underline;
         text-underline-offset: 1vh;
         }
-.user_square{
-    height: 30vw;
-    width: 70%;
-    margin-top: 5%;
-    margin-left: 14%;
-    z-index: -1;
-    border-radius: 0vh;
-    background-color: rgba(255, 255, 255, 0.926);
-    cursor: default;
 
-    border-radius: 10vh;    
-}
 .Profile_text{
-
-    margin-left: 60vh;
-    font-size: 6vh;
-    margin-top: 1vh;
+    padding-top: 1%;
+    margin-left: 40%;
+    font-size: 3vw;
+    cursor: text;
 }
+
 .login_input{
 border-radius: 4vh;
-height: 3vh;
-margin-left: 8vh;
-width: 40vh;
-
-margin-top: 17vh;
+font-size: 1vw;
+height: 1.2vw;
+width: 18vw;
 padding: 5px;
 }
 .User_Email{
-
-margin-top: 10vh;
-margin-left: 10vh;
+font-size: 2vw;
 }
 .Books_checked{
-
-    margin-left: 80vh;
+    font-size: 2vw;
 }
 .Books_hold{
-    margin-left: 80vh;
-    margin-top: 10vh;
+    font-size: 2vw;
 }
 .infof{
     color: brown;
+     font-size: 1.25vw;
 }
 .info{
-    margin-left: 80vh;
+ font-size: 1.25vw;
 }
 .infof:hover{
     text-decoration-line: underline;
 }
 .user_name{
+    font-size: 1vw;
 
-    margin-top: 29vh;
-    margin-left: 10vh;
-    height: 3vh;
+    height: 1.2vw;
     border-radius: 4vh;
-    width: 40vh;
+    width: 18vw;
     padding: 5px;
-    margin-left: 8vh;
 }
 .user_namet{
-
-    margin-top: 27vh;
-    margin-left: 10vh;
+    font-size: 2vw;
 }
 .login_button{
     background-color: brown;
     color: white;
     border: none;
     height: 5vh;
-    width: 10vh;
+    width: 7vw;
+    margin-top: 10%;
+    margin-left: 32%;
     border-radius: 3vh;
-
-    margin-top: 40vh;
-    margin-left: 39vh;
 }
 .login_button:hover{
     cursor: pointer;
@@ -178,15 +158,13 @@ margin-left: 10vh;
     opacity: 0.7;
 }
 .password_reset{
-    margin-top: 1.5vh;
-    margin-left: 80vh;
-    width: 60vh;
+    font-size: 1.25vw;
 }
 .password_reset_but{
     border: none;
     outline: none;
     color: brown;
-    font-size: 2.4vh;
+    font-size: 1vw;
     background-color: transparent;
     box-shadow: none;
 }
@@ -201,17 +179,110 @@ margin-left: 10vh;
 
     color: brown;
 }
-.contact_info{
+.sec1{
 
+    width: fit-content;
+    margin-left: 7%;
+    margin-top: -3%;
 }
+.contact_info{
+    font-size: 1.5vw;
+}
+.sec2{
+    cursor: text;
+    width: 28.4vw;
+}
+.container{
+    gap: 20%;
+    display: flex;
+    
+}
+.user_square{
+    height: calc(fit-content + 100vw);
+    width: 65%;
+    margin-top: 5%;
+    margin-left: 17%;
+    z-index: -1;
+    border-radius: 0vh;
+    background-color: rgba(255, 255, 255, 0.926);
+    cursor: default;
+
+    border-radius: 10vh;    
+}
+.white_space{
+    visibility: hidden;
+}
+
 @media screen and (max-width: 600px){
     html, body {
-        position: absolute !important;
-        display: block !important;
-        overflow-x: hidden !important;
-        overflow-y: hidden !important;
-        height: 100%;
+        position: absolute ;
+        display: block ;
+        overflow-x: hidden;
+        width: 99%;
     }
+    .container{
+        margin-top: -5%;
+        flex-direction: column;
+    }
+    .Profile_text{
+        font-size: 8vw;
+        margin-left: 20%;
+        padding-top: 5%;
+        color: #ff5f03;
+        width: fit-content;
+    }
+    .user_square{
+        margin-top: 15%;
+        height: fit-content;
+        width: 80vw;
+        border-radius: 13vw;
+        margin-left: 15%;
+    }
+    .login_input{
+        width: 60vw;
+        font-size: 3vw;
+        height: 5vw;
+        margin-top: 0%;
+    }
+    .user_namet{
+        font-size: 8vw;
+    }
+    .user_name{
+        width: 60vw;
+        height: 5vw;
+        font-size: 3vw;
+    }
+    .login_button{
+        width: 30vw;
+        margin-left: 24%;
+    }
+    .sec1{
+        width: 90vw;
+        margin-top: 0%;
+    }
+    .sec2{
+        width: 95%;
+        height: 30%;
+        margin-top: 10%;
+        margin-left: 2.5%;
+    }
+    .User_Email{
+        font-size: 8vw;
+    }
+    .Books_checked{
+        font-size: 7vw;
+    }
+    .Books_hold{
+        font-size: 7vw;
+    }
+    .info, .infof, .password_reset, .contact_info, .password_reset_but{
+        font-size: 4vw;
+    }
+    .white_space{
+        font-size: 2vw;
+    }
+    
+
     .header-square{
         visibility: hidden;
         display: none;
@@ -221,7 +292,7 @@ margin-left: 10vh;
     }
     .nav_display{
         background-color: #512929;
-        height: 120%;
+        height: 120%    ;
         width: 80vw;
         z-index: 2;
         position: fixed;
@@ -296,7 +367,7 @@ margin-left: 10vh;
         -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
         outline: none !important;
     }
-    welcoming-mobile{
+    .welcoming-mobile{
         width: 35vw;
         font-size: 4vw;
         color: rgb(220, 167, 167);
@@ -306,7 +377,7 @@ margin-left: 10vh;
         margin-left: 40%;
         margin-top: 20%;
         color: white;
-        height: 100vw;
+        height: 50vw;
 
         width: 30vw;
         z-index: 5;
