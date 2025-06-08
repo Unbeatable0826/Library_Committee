@@ -14,7 +14,7 @@ const firebaseConfig = {
     databaseURL: "https://library-committee-9ac2d-default-rtdb.firebaseio.com/"
 };
 const nameElem = document.getElementById("name");
-
+const mobileElem = document.getElementById("mobile_name");
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -51,6 +51,7 @@ onAuthStateChanged(auth, async (user) => {
                 hold2u = userData.hold2;
                 hold3u = userData.hold3;
                 nameElem.textContent = "Welcome Back, " + userData.name.substr(0, 20);
+                mobileElem.textContent = "Welcome Back, " + userData.name.substr(0, 20);
                 if(book1u){
                     book1 = book1u.split("&&");
                 }else{book1 = ""}
@@ -94,6 +95,7 @@ onAuthStateChanged(auth, async (user) => {
                         clone.querySelector('.book_hold').textContent = "Type: " + book[0];
                         clone.querySelector('.book_id').textContent = "BookId: " + book[1];
                         clone.querySelector('.book_img').src = curr_book.img;
+                        clone.querySelector('.cancel_button').textContent = "Cancel" + book[1]
                         clone.querySelector('.cancel_button').dataset.bookId = book[1]; 
                         bookList.append(clone)
                     }
@@ -141,6 +143,7 @@ onAuthStateChanged(auth, async (user) => {
                         clone.querySelector('.book_hold').textContent = "Type: " + book[0];
                         clone.querySelector('.book_id').textContent = "BookId: " + book[1];
                         clone.querySelector('.book_img').src = curr_book.img;
+                        clone.querySelector('.cancel_button').textContent = "Cancel " + book[0]
                         clone.querySelector('.cancel_button').dataset.bookId = book[1]; 
                         bookList.append(clone)
 

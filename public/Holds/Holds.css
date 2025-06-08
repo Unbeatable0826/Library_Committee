@@ -302,26 +302,47 @@
         margin-top: 2%;
     }
     .book_grid{
+        margin-top: 10%;
         margin-left: 15%;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .book{
+        width: 80vw;
+        border-radius: 10vw;
+    }
+    .book_tittle{
+        font-size: 5vw;
+    }
+    .book_author{
+        font-size: 4vw;
+    }
+    .book_genre{
+        font-size: 3vw;
+    }
+    .book_hold{
+        font-size: 3vw;
+    }
+    .book_id{
+        font-size: 3vw;
+    }
+    .wait_time{
+        font-size: 3vw;
+    }
+    .book_img{
+        margin-left: -10%;
+        width: 30vw;
+    }
+    .cancel_button{
+        height: 10vw;
+        width: 50%;
+    }
+    .book_info{
+        margin-left: 5%;
+    }
+    .header_books{
+        margin-top: 20%;
+        font-size: 7vw;
+        margin-left: 10%;
+    }
 
 
 
