@@ -177,15 +177,79 @@ bookList.addEventListener("click", async(event) => {
     curr_book.holds.splice(line, 1)
     console.log(curr_book)
     alert(line)
-
-
-
-
-
-
-
-
 })
+
+const nav_display = document.querySelector('.nav_display');
+
+const nav_opener = document.querySelector('.nav_opener');
+const line1 = document.querySelector('.line1')
+const line2 = document.querySelector('.line2')
+const line3 = document.querySelector('.line3')
+let open = false;
+nav_opener.addEventListener('click', (event) => {
+    if (!open){
+        nav_display.style.marginLeft = '-30vw';
+        line3.style.marginTop = '10vw'
+        line2.style.marginLeft = '-100vw';
+        line1.style.transform = 'rotate(45deg)'
+        line3.style.transform = 'rotate(135deg)'
+        
+        open = !open
+    }else{
+        nav_display.style.marginLeft = '-70vw'
+        line3.style.marginTop = '14vw';
+        line2.style.marginLeft = '70vw';
+        line3.style.transform = 'rotate(0deg)';
+        line1.style.transform = 'rotate(0deg)';
+        open = !open
+    }
+
+    
+})
+// nav_display.addEventListener('click', (event) => {
+//     if (!open){
+//                 nav_display.style.marginLeft = '-30vw';
+//         line3.style.marginTop = '10vw'
+//         line2.style.marginLeft = '-100vw';
+//         line1.style.transform = 'rotate(45deg)'
+//         line3.style.transform = 'rotate(135deg)'
+        
+//         open = !open
+//         event.stopPropagation();
+//     }
+// })
+const nav_dd = document.getElementsByClassName("nav_display")[0];
+// window.onclick = function(event) {
+//   if (event.target == nav_display) {
+//         nav_display.style.marginLeft = '-70vw'
+//         line3.style.marginTop = '14vw';
+//         line2.style.visibility = 'visible';
+//         line3.style.transform = 'rotate(0deg)';
+//         line1.style.transform = 'rotate(0deg)';
+//         open = !open;
+//   }
+// }
+
+
+
+window.onclick = function(event) {
+if (open && event.target !== nav_display && !nav_display.contains(event.target)){
+        nav_display.style.marginLeft = '-70vw'
+        line3.style.marginTop = '14vw';
+        line2.style.marginLeft = '70vw';
+        line3.style.transform = 'rotate(0deg)';
+        line1.style.transform = 'rotate(0deg)';
+        open = !open;
+  }else if (!open && event.target === nav_display && nav_display.contains(event.target)){
+        nav_display.style.marginLeft = '-30vw';
+        line3.style.marginTop = '10vw'
+        line2.style.marginLeft = '-100vw';
+        line1.style.transform = 'rotate(45deg)'
+        line3.style.transform = 'rotate(135deg)'
+        
+        open = !open
+  }
+}
 
 
 

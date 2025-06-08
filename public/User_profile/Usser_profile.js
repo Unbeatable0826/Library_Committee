@@ -32,7 +32,7 @@ const out_text = document.querySelector(".Books_checked")
 const held_text = document.querySelector(".Books_hold");
 const pass = document.querySelector('.login_button');
 const reset = document.querySelector('.password_reset_but');
-
+const mobileElem = document.getElementById("mobile_name")
 onAuthStateChanged(auth, async(user) => {
     if (user){
         let userDocRef = doc(db, "users", user.uid);
@@ -40,7 +40,8 @@ onAuthStateChanged(auth, async(user) => {
         const docSnapshot = await getDoc(userDocRef)
         if (docSnapshot.exists()){
             const thingy = docSnapshot.data()
-            nameElem.textContent = "Welcome Back, " + thingy.name.substr(0, 20);
+             mobileElem.textContent = "Welcome Back, " + thingy.name.substr(0, 20);
+             nameElem.textContent = "Welcome Back, " + thingy.name.substr(0, 20);
             book1 = thingy.book1;
             book2 = thingy.book2;
             book3 = thingy.book3;
@@ -195,14 +196,5 @@ if (open && event.target !== nav_display && !nav_display.contains(event.target))
         line3.style.transform = 'rotate(135deg)'
         
         open = !open
-
-
-
-
-
-
-
-
-
   }
 }

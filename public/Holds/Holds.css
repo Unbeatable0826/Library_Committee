@@ -1,14 +1,18 @@
     .book{
     outline: thick red;
     background-color:  rgb(98, 26, 26);
-    height: 60vh;
+    padding-bottom: 1%;
     outline-width: 1vh;
     border-radius: 10vh;
-    width: 80vh;
+    width: 40vw;
     padding-left: 5vh;
     align-items: center;
     justify-content: flex-start;
 
+    }
+    .book_info{
+        margin-left: 12%;
+        height: fit-content;
     }
     body{
     overflow-x: hidden;
@@ -16,184 +20,310 @@
     }
     .header_books{
     color: white;
-    font-size: 5vh;
+    font-size: 3vw;
     text-align: center;
     }
+    .content_container{
+        display: flex;
+    }
     .book_img{
-    height: 40vh;
-    width: 30vh;
-    border-radius: 4vh;
+    height: fit-content;
+    width: 15vw;
+    border-radius: 2vw;
     }
     .book_tittle{
-    margin-top: 1vh;    
-    margin-right: 10vh;
+    margin-top: 0.5vw;    
+    margin-right: 5vw;
     color: white;
-    font-size: 4.5vh;
+    font-size: 2.25vw;
     }
     .book_author{
-    margin-left: 40vh;
     color: white;
-    width: 40vh;
-    position: absolute;
-    font-size: 3.5vh;
+    font-size: 1.75vw;
     }
     .book_genre{
-    position: absolute;
-    margin-left: 40vh;
-    margin-top: 15vh;
     color: white;
-    font-size: 3vh;
+    font-size: 1.25vw;
     }
     .book_hold{
-    position: absolute;
-    margin-left: 40vh;
-    margin-top: 20vh;
     color: white;
-    font-size: 3vh;
-
+    font-size: 1.25vw;
     }
     .book_id{
-    position: absolute;
-    margin-left: 40vh;
-    margin-top: 25vh;
     color:white;
-    font-size: 3vh;
+    font-size: 1.25vw;
     }
     .wait_time{
-    position: absolute;
-    margin-left: 40vh;
-    margin-top: 30vh;
     color: white;
-    font-size: 3vh;
+    font-size: 1.25vw;
     }
-
-
     .buttons-profile{
     background-color: transparent;
-
     }
-    .welcoming-text{
-    color:rgb(255, 255, 255);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3vh;
-    margin-left: 5vh;
-    position: absolute;
-    background-color: transparent;
-    margin-top: 2vh;
-
-    }
-    .header-square{
-    height: 10vh;
-    width: 250vh;
-    margin-left: -3vh;
-    z-index: -1;
-    margin-top: -2vh;
-    border-radius: 0vh;
-    background-color: rgb(72, 32, 32);
-    cursor: default;
-    position: absolute;
-
-    }
-    .home-button{
-    color: white;
-    margin-left: 120vh;
-    cursor: pointer;
-    margin-top: 1vh;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3vh;
-    transition: text-decoration 5s, text-underline-offset 5s;
-
-    background-color: transparent;
-    outline: none;
-    border: none;
-    position: absolute;
-    z-index: 0;
-    }
-    .home-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-
-    }
-
-
-    .profile-button{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 155vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-
-
-    }
-    .profile-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-    }
-
-
-
-    .holds-button{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 137vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-
-    }
-    a{
-    color: white;
-    text-decoration: none;
-    }
-
-    .anchor-button{
-    color: rgb(255, 255, 255);
-    }
-
-    .holds-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-    }
-
-    .sign-out-button{
-
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 170vh;
-    color: white;
-    cursor: pointer;
-    font-size: 3vh;
-    margin-top: 1vh;
-    position: absolute;
-    background-color: transparent;
-    border: none;
-    }
-    .sign-out-button:hover{
-    text-decoration: underline;
-    text-underline-offset: 1vh;
-    }
+   
     .book_grid{
-    display: grid;
-    gap: 2vh;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-left: 2%;
+    display: flex;
+    gap: 3vw;
+    flex-wrap: wrap;
     }
     .cancel_button{
-    position: absolute;
-    height: 6vh;
-    margin-top: 34vh;
-    margin-left: 60vh;
+    height: 3vw;
+    float: right;
+    margin-right: 10%;
     border-radius: 5vh;
     background-color: black;
     color: white;
     border: none;
     transition: 0.3s;
-    width: 12vh;
+    width: 7vw;
     }
     .cancel_button:hover{
     cursor: pointer;
     }
     .cancel_button:active{
     background-color: rgb(86, 4, 4);
+    }
+            .mobile_view{
+            visibility: hidden;
+            display: none;
+        }
+        .buttons-profile{
+        background-color: transparent;
+
+        }
+        .welcoming-text{
+        color:rgb(255, 255, 255);
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.75vw;
+        margin-left: 2vw;
+        background-color: transparent;
+        cursor: text;
+
+        }
+        .navbar{
+            display: flex;
+        }
+        a{
+        color: white;
+        text-decoration: none;
+        }
+        .header-square{
+        height: 10%;
+        width: 105%;
+        margin-left: -1%;
+        margin-top: -1%;
+        z-index: -1;
+        border-radius: 0vh;
+        background-color: rgb(72, 32, 32);
+        cursor: default;
+        display: flex;
+        }
+        .anchor-button{
+        color: rgb(255, 255, 255);
+        }
+        .home-button{
+        margin-left: 38%;
+        color: white;
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 1.5vw;
+        transition: text-decoration 5s, text-underline-offset 5s;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        margin-top: 2%;
+        z-index: 0;
+        }
+        .home-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+
+        }
+        .profile-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5vw;
+        margin-left: 5%;
+        margin-top: 2%;
+        }
+        .profile-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
+        .holds-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        margin-top: 2%;
+        font-size: 1.5vw;
+        margin-left: 5%;
+        }
+        .holds-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
+        .sign-out-button{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5vw;
+        background-color: transparent;
+        border: none;
+        margin-top: 2%;
+        margin-left: 4%;
+        }
+        .sign-out-button:hover{
+        text-decoration: underline;
+        text-underline-offset: 1vh;
+        }
+    @media screen and (max-width: 600px){
+         .header-square{
+        visibility: hidden;
+        display: none;
+    }
+    .mobile_view{
+        display: flex;
+    }
+    .nav_display{
+        background-color: #512929;
+        height: 120%    ;
+        width: 80vw;
+        z-index: 2;
+        position: fixed;
+        margin-top: 0vw;
+        margin-left: -70vw;
+        transition: margin-left 1s;
+    }
+    .user-cards{
+        margin-left: 30%;
+    }
+    .line1{
+        background-color: white;
+        margin-top: 10vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        transition: all 1s;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        
+    }
+    .line2{
+        background-color: white;
+        margin-top: 12vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        -webkit-tap-highlight-color: transparent;
+        transition: all 1s;
+    }
+    .line3{
+        background-color: white;
+        margin-top: 14vw;
+        height: 1vw;
+        width: 8vw;
+        margin-left: 70vw;
+        border-radius: 5vw;
+        color: white;
+        position: absolute;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        transition: all 1s;
+    }
+    .nav_opener{
+        margin-top: 2vw;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .nav_opener:focus{
+        outline: none !important;
+        box-shadow: none;
+    }
+    .nav_opener:active{
+        opacity: 0.5;
+    }
+    .nav_opener:active{
+        user-select:none;
+        color: transparent;
+    }
+    .mobile_view{
+        margin-top: -10vw;
+        visibility: visible;
+    }
+    * {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+        -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+        outline: none !important;
+    }
+    .welcoming-mobile{
+        width: 35vw;
+        font-size: 4vw;
+        color: rgb(220, 167, 167);
+    }
+    .hyperlink_information{
+        position: absolute;
+        margin-left: 40%;
+        margin-top: 20%;
+        color: white;
+        height: 50vw;
+
+        width: 30vw;
+        z-index: 5;
+        font-size: 6vw;
+    }
+    .home-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .profile-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .holds-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;                
+    }
+    .sign-out-mobile{
+        width: 32vw;
+    }
+    .sign-out-mobile:hover{
+        text-decoration: underline;
+        text-underline-offset: 2vw;
+    }
+    .home-mobile{
+        margin-top: 2%;
+    }
+    .book_grid{
+        margin-left: 15%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }

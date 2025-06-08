@@ -134,7 +134,9 @@
         padding-left: 1vh;
         border-radius: 4vh;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        */padding-top: 1vh;
+        */
+        height: fit-content;
+        padding-top: 1vh;
         cursor: pointer;
 
         }
@@ -313,8 +315,7 @@
         margin-left: 25%;
         }
         .Juvenile_FICTION{
-            
-        padding-top: 10%;
+        
         color: white;
         margin-left: 3vh;
         font-size: 1.5vw;
@@ -536,6 +537,36 @@
             }
             .content_inside{
                 width: 100%;
+            }
+            .checkbox_mobile{
+                background-color: #753e3e;
+                margin-top: 115%;
+                width: 45%;
+                height: fit-content;
+                margin-left: 37%;
+                border-radius: 5vw;
+            }
+            .checkbox_text{
+                width: fit-content;
+                font-size: 6vw;
+                text-align: center;
+                margin-left: 2%;
+                color: #b98181;
+            }
+            .Juvenile_FICTION{
+                margin-left: 5%;
+                padding-top: none;
+                font-size: 5vw;
+                width: 30vw;
+            }
+            .Fiction{
+                margin-left: 5%;
+                font-size: 5vw;
+            }
+            .Young_Adult{
+                margin-left: 5%;
+                font-size: 5vw;
+                padding-bottom: 5vw;
             }
 
         }
