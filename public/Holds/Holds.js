@@ -171,15 +171,47 @@ bookList.addEventListener("click", async(event) => {
     let thingy = await get(bookref)
     let curr_book = thingy.val();
     let line;
-    console.log(curr_book)
     for (let x = 0; x < curr_book.holds.length; x++){
         if (curr_book.holds[x].includes(userID)){
             line = x;
+            break;
         }
-    } 
+    }
+    alert(curr_book.holds[line]);
+    let hold_info = curr_book.holds[line].split("&&&")
     curr_book.holds.splice(line, 1)
-    console.log(curr_book)
-    alert(line)
+
+    if (curr_book.holds == ""){
+        if (curr_book.checkoutby == ""){
+            update(bookref, {avail: true,})
+        }
+        curr_book.holds = [""];
+    }
+     update(bookref, {holds: curr_book.holds,})
+     alert("updated RTDB uhhh hopefully worked")
+    const docSnapshot = await getDoc(doc(db, "users", userID));
+    const docSnap = docSnapshot.data()
+    
+     if (docSnap.hold1.split("&&")[1] == book.dataset.bookId){
+         await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+          await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+          await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+          await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+        await setDoc(userDocRef, {hold3: ""}, {merge: true});
+        await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+        alert("thingyyyyyyyyyyyyyyy")
+     }
+     if (docSnap.hold2.split("&&")[1] == book.dataset.bookId){
+        await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+        await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+        await setDoc(userDocRef, {hold3: ""}, {merge: true});
+        await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+     }if (docSnap.hold3.split("&&")[1] == book.dataset.bookId){
+        await setDoc(userDocRef, {hold3: ""}, {merge: true});
+        await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+     }
+     window.location.reload(); 
+
 })
 
 const nav_display = document.querySelector('.nav_display');

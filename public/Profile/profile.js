@@ -281,15 +281,6 @@ window.onclick = function(event) {
         line3.style.transform = 'rotate(135deg)'
         
         open = !open
-
-
-
-
-
-
-
-
-
   }
 }
 const modal_tittle = document.querySelector(".tittle1");
@@ -412,20 +403,20 @@ modal_pickup.addEventListener('click', async() =>{
                     alert("Your Book is on Hold :)");
                     window.location.reload(); 
                 })
-            }
+                }
                 
                 else if(book.holds[0] == ""){
 
                     const book_curr =  ref(rtdb, 'books/' + bookId + '/holds/0')
-
-                    set(book_curr, "hold" + "&&&" + userID + "&&&" + (Date.now() + 4320000000000000000))
+                    const thingys = Date.now() + 4320000000000000000;
+                    set(book_curr, "hold" + "&&&" + userID + "&&&" + thingys)
                     .then(async () => {
                         if (hold1 == "" || hold1 == null) {
-                            await setDoc(userDocRef, { hold1: "hold&&" + bookId, hold1_time: thingysss }, { merge: true });
+                            await setDoc(userDocRef, { hold1: "hold&&" + bookId, hold1_time: thingys }, { merge: true });
                         } else if (hold2 == "" || hold2 == null) {
-                            await setDoc(userDocRef, { hold2: "hold&&" + bookId, hold2_time: thingysss }, { merge: true });
+                            await setDoc(userDocRef, { hold2: "hold&&" + bookId, hold2_time: thingys }, { merge: true });
                         } else if (hold3 == "" || hold3 == null) {
-                            await setDoc(userDocRef, { hold3: "hold&&" + bookId, hold3_time: thingysss }, { merge: true });
+                            await setDoc(userDocRef, { hold3: "hold&&" + bookId, hold3_time: thingys }, { merge: true });
                         } else {
                             alert("Please inform an admin, there is a problem with the website");
                         }
@@ -435,7 +426,13 @@ modal_pickup.addEventListener('click', async() =>{
                     })
                 }
             }else{
-                alert("Sorry! :( You already have this book checked out from us or Held");
+                if (hold1 != "" && hold2 != "" && hold3 != ""){
+                    alert("Sorry! :( You have already reached a max number of books you can put on hold or for pickup");
+                }
+                else{
+                    alert("Sorry! :( You already have this book checked out from us or Held");
+                }
+                
             }
     }
     

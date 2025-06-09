@@ -217,6 +217,7 @@ font-size: 2vw;
     html, body {
         position: absolute ;
         display: block ;
+        overflow-y: auto;
         overflow-x: hidden;
         width: 99%;
     }

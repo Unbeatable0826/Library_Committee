@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-
+const people_who_forgot = document.querySelector(".people_who_forgot")
 document.getElementById("login").addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -34,6 +34,7 @@ document.getElementById("login").addEventListener("click", function (event) {
         .catch((error) => {
             console.error("Login failed:", error);
             alert(`Login failed: ${error.message}`);
+            people_who_forgot.style.display = 'block'
         });
 });
 
