@@ -37,6 +37,7 @@ const userCardTemplate = document.querySelector("[data-book-template]")
 const bookCardContainer = document.querySelector("[data-books-cards]")
 let userID;
 let userDocRef;
+let user_email;
 const mobile_nameElem = document.getElementById("mobile_name");
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -55,6 +56,7 @@ onAuthStateChanged(auth, async (user) => {
                 hold1u = userData.hold1;
                 hold2u = userData.hold2;
                 hold3u = userData.hold3;
+                user_email = userData.email;
                 if(book1u){
                     book1 = book1u.split("&&")[1];
                 }else{book1 = ""}
@@ -376,8 +378,28 @@ modal_pickup.addEventListener('click', async() =>{
                         } else {
                             alert("Please inform an admin, there is a problem with the website");
                         }
-                        alert("Your Book is on Hold :)");
-                        window.location.reload(); 
+                        alert(user_email);
+                        alert(book.tittle);
+                        alert(bookId);
+                        await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=UTF-8"
+                        },
+                        body: JSON.stringify({
+                            'tittle': "" + book_.tittle,
+                            'email': "" + user_email,
+                            'bookid': "" + bookId,
+                        })
+                        })
+                        .then(response => {
+                        if (!response.ok) {
+                            alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
+                        }
+                        return response.json();
+                        })
+
+
                     })
                 }
             }else if(book.available == false && ![book1, book2, book3, hold1, hold2, hold3].includes(book.id) && (hold1 == "" || hold2 == "" || hold3== "")){

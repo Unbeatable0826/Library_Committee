@@ -27,7 +27,7 @@
         display: flex;
     }
     .book_img{
-    height: fit-content;
+    height: auto;
     width: 15vw;
     border-radius: 2vw;
     }

@@ -17,5 +17,8 @@
     "url": "https://github.com/Unbeatable0826/Library_Committee/issues"
   },
   "homepage": "https://github.com/Unbeatable0826/Library_Committee#readme",
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
