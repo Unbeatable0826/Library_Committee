@@ -141,7 +141,6 @@
 
         }
         .img{
-        height: 70vw;
         border-radius: 3vh;
         }
         .header{
@@ -366,6 +365,9 @@
             }
             .search{
                 font-size: 5vw;
+            }
+            .img{
+                height: 70vw;
             }
             .mobile_view{
                 display: flex;
