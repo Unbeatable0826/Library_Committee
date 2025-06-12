@@ -378,9 +378,7 @@ modal_pickup.addEventListener('click', async() =>{
                         } else {
                             alert("Please inform an admin, there is a problem with the website");
                         }
-                        alert(user_email);
-                        alert(book.tittle);
-                        alert(bookId);
+                        alert("Your Book Is Now On Hold :)")
                         await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
                         method: "POST",
                         headers: {
@@ -396,10 +394,9 @@ modal_pickup.addEventListener('click', async() =>{
                         if (!response.ok) {
                             alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
                         }
-                        return response.json();
                         })
-
-
+                        
+                        window.location.reload();
                     })
                 }
             }else if(book.available == false && ![book1, book2, book3, hold1, hold2, hold3].includes(book.id) && (hold1 == "" || hold2 == "" || hold3== "")){

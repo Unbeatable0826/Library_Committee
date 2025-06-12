@@ -177,7 +177,6 @@ bookList.addEventListener("click", async(event) => {
             break;
         }
     }
-    alert(curr_book.holds[line]);
     let hold_info = curr_book.holds[line].split("&&&")
     curr_book.holds.splice(line, 1)
 
@@ -186,9 +185,45 @@ bookList.addEventListener("click", async(event) => {
             update(bookref, {avail: true,})
         }
         curr_book.holds = [""];
+    }else if(hold_info[0] == "pickup"){
+        let book_thing = curr_book.holds[0].split("&&&")
+        book_thing[0] = "pickup"
+        const user_2_time = Date.now() + 604800000
+        book_thing[2] = "" + user_2_time;
+        curr_book.holds[0] = book_thing.join("&&&")
+        const user_2_docref = doc(db, "users", String(book_thing[1]));
+        const user_2_sn = await getDoc(user_2_docref);
+        const user_2_snap = user_2_sn.data();
+        if (user_2_sn.exists()){
+            if (user_2_snap.hold1.split("&&")[1] == String(book.dataset.bookId)){
+                await setDoc(user_2_docref, { hold1: "pickup&&" + String(book.dataset.bookId), hold1_time: user_2_time}, { merge: true });
+            }else if(user_2_snap.hold2.split("&&")[1] == String(book.dataset.bookId)){
+                await setDoc(user_2_docref, { hold2: "pickup&&" + String(book.dataset.bookId), hold2_time: user_2_time}, { merge: true });
+            }else if(user_2_snap.hold3.split("&&")[1] == String(book.dataset.bookId)){
+                await setDoc(user_2_docref, { hold3: "pickup&&" + String(book.dataset.bookId), hold2_time: user_2_time}, {merge: true});
+            }
+            await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                'tittle': "" + curr_book.tittle,
+                'email': "" + user_2_snap.email,
+                'bookid': "" + book.dataset.bookId,
+            })
+            })
+            .then(response => {
+            if (!response.ok) {
+                alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
+            }
+            })
+            alert("Successfully Deleted Hold/Pickup")
+        }else{
+            alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
+        }
     }
-     update(bookref, {holds: curr_book.holds,})
-     alert("updated RTDB uhhh hopefully worked")
+    update(bookref, {holds: curr_book.holds,})
     const docSnapshot = await getDoc(doc(db, "users", userID));
     const docSnap = docSnapshot.data()
     
@@ -199,7 +234,6 @@ bookList.addEventListener("click", async(event) => {
           await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
         await setDoc(userDocRef, {hold3: ""}, {merge: true});
         await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-        alert("thingyyyyyyyyyyyyyyy")
      }
      if (docSnap.hold2.split("&&")[1] == book.dataset.bookId){
         await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
