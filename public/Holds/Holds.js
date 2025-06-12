@@ -222,6 +222,8 @@ bookList.addEventListener("click", async(event) => {
         }else{
             alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
         }
+    }else{
+        alert("Successfully Deleted Hold/Pickup");
     }
     update(bookref, {holds: curr_book.holds,})
     const docSnapshot = await getDoc(doc(db, "users", userID));
