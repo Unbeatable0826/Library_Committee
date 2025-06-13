@@ -131,11 +131,25 @@ fetchBooks();
 const JFIC = document.querySelector(".JFIC")
 const FIC = document.querySelector(".FIC")
 const YA = document.querySelector(".YA")
-search.addEventListener("input", does_stuff)
+const JFICm = document.querySelector(".JFICm");
+const FICm = document.querySelector(".FICm");
+const YAm = document.querySelector(".YAm");
 
+
+
+
+
+
+
+search.addEventListener("input", does_stuff)
 JFIC.addEventListener("input", does_stuff);
 FIC.addEventListener("input", does_stuff);
 YA.addEventListener("input", does_stuff);
+
+
+JFICm.addEventListener("input", does_stuff);
+FICm.addEventListener("input", does_stuff);
+YAm.addEventListener("input", does_stuff);
 // does something, really anything
 // holds a value from some search thing
 function does_stuff(){
@@ -144,16 +158,16 @@ function does_stuff(){
         // for each book...
         let isVisible = book.tittle.toLowerCase().includes(value.toLowerCase()) || book.author.toLowerCase().includes(value.toLowerCase()) || book.genre.toLowerCase() == (value.toLowerCase())
         let match = false;
-        if (JFIC.checked){
+        if (JFIC.checked || JFICm.checked){
             match = match || (book.genre == "JFIC" || book.genre.toLowerCase() === "jfic");
         }
-        if (FIC.checked){
+        if (FIC.checked || FICm.checked){
             match = match || (book.genre == "FIC" || book.genre.toLowerCase() === "fic");
         }
-        if (YA.checked){
+        if (YA.checked || YAm.checked){
             match = match || (book.genre == "YA" || book.genre.toLowerCase() === "ya");
         }
-        if (JFIC.checked == false && FIC.checked == false && YA.checked == false){
+        if ((JFIC.checked == false && FIC.checked == false && YA.checked == false) && (JFICm.checked == false && FICm.checked == false && YAm.checked == false ) ){
             match = true;
         }
         isVisible = isVisible && match;

@@ -183,6 +183,7 @@ bookList.addEventListener("click", async(event) => {
     if (curr_book.holds == ""){
         if (curr_book.checkoutby == ""){
             update(bookref, {avail: true,})
+            alert("Successfully Deleted Hold/Pickup")
         }
         curr_book.holds = [""];
     }else if(hold_info[0] == "pickup"){
@@ -222,8 +223,6 @@ bookList.addEventListener("click", async(event) => {
         }else{
             alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
         }
-    }else{
-        alert("Successfully Deleted Hold/Pickup");
     }
     update(bookref, {holds: curr_book.holds,})
     const docSnapshot = await getDoc(doc(db, "users", userID));
@@ -246,6 +245,7 @@ bookList.addEventListener("click", async(event) => {
         await setDoc(userDocRef, {hold3: ""}, {merge: true});
         await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
      }
+     if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup")}
      window.location.reload(); 
 
 })
@@ -321,34 +321,3 @@ if (open && event.target !== nav_display && !nav_display.contains(event.target))
         open = !open
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
