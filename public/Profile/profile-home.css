@@ -172,12 +172,7 @@
         border-radius: 10vw;
         min-height: 10vw;
         }
-        .modal-header {
-        padding: 2px 16px;
-        background-color: #5cb85c;
-        color: white;
-        position: absolute;
-        }
+
         .modal {
         transition: all 1s;
         display: none; 

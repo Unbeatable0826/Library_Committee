@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Books</title>
+    <link rel="icon" type="image/x-icon" href="../../Book_image.jpeg">
+    <link rel="stylesheet" href="users.css" >
+    <script type="module" src="users.js" defer></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+<body>
+    <div class="loading_wrapper">
+            <dotlottie-player src="https://lottie.host/820a0d74-1896-49f0-9703-19e3e1e977c3/JLRi1A8G19.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    </div>
+    <!-- The Header Admin Square -->
+    <div class="header-square">
+        <div class="buttons-profile">
+        <h3 class="welcoming-text"> <span id="name"></span></h3> </div>
+        <button class="home_button">Home</button>
+        <button class="users_button">Users</button>
+        <button class="books_button">Books</button>
+        <button class="local_profile_button">Local Profile</button>
+        <button class="sign-out-button">Sign Out</button>
+    </div>
+    <div class="users_container">
+        <div class="header">
+            <h1 class="name_header">Name</h1>
+            <h1>Email</h1>
+            <h1>UserId</h1>
+            <h1 class="actions_header">Actions</h1>
+        </div>
+        <div class="search-wrapper">
+            <label for="search" class="label-search">Search </label>
+            <input type="search" id="search" class="search" >
+        </div>
+        <div class="user_card_container"></div>
+    </div>
+    <template id="data-user-template">
+        <div class="user">
+            <h1 class="user_name">Divyansh Gupta</h1>
+            <h1 class="user_email">divyansh.gupta0826@gmail.com</h1>
+            <h1 class="user_uid">ccZvUUTSRdgLjWWaCewa3GVjeX63</h1>
+            <button class="view">View</button>
+            <button class="delete">Delete</button>
+        </div>
+    </template>
+    <template id="data-user-book-template">
+        <div class="book">
+            <h1 class="book_tittle"></h1>
+            <h1 class="book_author"></h1>
+            <h1 class="book_date"></h1>
+            <button class="cancel_hold"></button>
+            <button class="book_action"></button>
+        </div>
+    </template>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="name_info_div">
+                <h1> Name: </h1>
+                <input class="user_name_modal">
+            </div>
+            <div class="email_info_div">
+                <h1>Email: </h1>
+                <input class="user_email_modal">
+            </div>
+            <button class="user_info_save_but">Save</button>
+            <button class="password_reset">Send Password Reset Email</button>
+            <div class="hold_or_checkout_book">
+                <h1>Book ID: </h1>
+                <input type="text" class="book_id_input">
+                <button class="check_availibility"> Check Availbility </button>
+            </div>
+            <button class="send_custom_email">Send Custom Email</button>
+            <h1 class="user_uid_modal">UID: 187281728718279172878</h1>
+            <h1 class= "checked_out_info_modal">Books Checked Out: 2</h1>
+            <h1 class= "holds_out_info_modal">Books On Hold: 3</h1>
+            <div class="user_information_modal">
+                <!-- <div class="book_1_info">
+                    <h1 class="book_1_modal">Tittle: The Sisters Grimm The Problem Child | BookID: 1</h1>
+                    <h1 class="book_1_time_modal">Due By: 2/2/2027</h1>
+                    <button class="book_1_button">Check In</h1>
+                </div>
+                <div class="book_2_info">
+                    <h1 class="book_2_modal">Tittle: Brotherband: the Hunters | BookID: 2</h1>
+                    <h1 class="book_2_time_modal">Due By: 2/2/2027</h1>
+                    <button class="book_2_button">Check In</h1>
+                </div>
+                <div class="book_3_info">
+                    <h1 class="book_3_modal">Tittle: Gone| BookId: 3</h1>
+                    <h1 class="book_3_time_modal">Due By: 2/2/2027</h1>
+                    <button class="book_3_button">Check In</h1>
+                </div>
+                <div class="hold_1_info">
+                    <h1 class="hold_1_modal">Tittle: Cam Jansen and the Mystery of the U.F.O. | BookId: 6 | Type: Hold</h1>
+                    <h1 class="hold_1_time_modal">Pickup By: 2/2/2027</h1>
+                    <button>Check Out</button>
+                </div>
+                <div class="hold_2_info">
+                    <h1 class="hold_2_modal">Title: The New Prophecy: Warriors Midnight | BookId: 89 | Type: Pickup</h1>
+                    <h1 class="hold_2_time_modal">Pickup By: 2/2/2027</h1>
+                    <button>Check Out</button>
+                </div>
+                <div class="hold_3_info">
+                    <h1 class="hold_3_modal">Tittle: King Lear | BookId: 67 | Type: Hold</h1>
+                    <h1 class="hold_3_time_modal">Pickup By: 2/2/2027</h1>
+                    <button>Check Out</button>
+                </div> -->
+            </div>
+            <div class="modal_2">
+                <div class="modal_2_content">
+                    <span class="close_modal_2">&times;</span>
+                    <h1 class="modal_2_tittle">Tittle: </h1>
+                    <h1 class="modal_2_author">Author: </h1>
+                    <h1 class="modal_2_genre"> Genre: </h1>
+                    <h1 class="modal_2_date">Estimated Date: </h1>
+                    <h1 class="modal_2_description">Book Description: </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

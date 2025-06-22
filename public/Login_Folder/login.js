@@ -51,13 +51,13 @@ async function checkUserRole(uid) {
             localStorage.setItem("user", JSON.stringify({ uid, email: userData.email }));
 
             if (isAdmin) {
-                window.location.href = "../Profile/admin_profile-home.html"; 
+                window.location.href = "../admin-profile/Home/home.html"; 
             } else {
                 window.location.href = "../Profile/profile-home.html"; 
             }
         } else {
             console.error("User not found in Firestore!");
-            alert("User not registered properly. Contact support.");
+            alert("Contact support.");
         }
     } catch (error) {
         alert("Try again later.");

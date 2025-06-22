@@ -1,0 +1,369 @@
+.header-square{
+display: flex;
+height: fit-content;
+padding: 0.2vw;
+margin-top: -0.2%;
+background-color: rgb(13, 4, 255);
+color: white;
+font-size: 1.5vw;
+}
+.welcoming-text{
+margin-top: 1%;
+margin-left: 2%;
+width: 50vw;
+height: 0vw;
+
+}
+.home_button{
+margin-left: 13%;
+padding: 1vw;
+cursor: pointer;
+font-size: 1.2vw;
+border: none;
+transition: all 0.5s;
+border-radius: 1vw;
+}
+.home_button:hover{
+background-color: rgb(27, 103, 255);
+color: white;
+}
+.users_button{
+border-radius: 1vw;
+padding: 1vw;
+margin-left: 1%;
+cursor: pointer;
+font-size: 1.2vw;
+border: none;
+transition: all 0.5s;
+}
+.users_button:hover{
+background-color: rgb(27, 103, 255);
+color: white;
+}
+.books_button{
+padding: 1vw;
+margin-left: 1%;
+cursor: pointer;
+font-size: 1.2vw;
+border: none;
+transition: all 0.5s;
+border-radius: 1vw;
+}
+.books_button:hover{
+background-color: rgb(27, 103, 255);
+color: white;
+}
+.local_profile_button{
+border-radius: 1vw;
+margin-left: 1%;
+padding: 1vw;
+cursor: pointer;
+font-size: 1.2vw;
+border: none;
+transition: all 0.5s;
+}
+.local_profile_button:hover{
+background-color: rgb(27, 103, 255);
+color: white;
+}
+.sign-out-button{
+border-radius: 1vw;
+margin-left: 1%;
+padding: 1vw;
+cursor: pointer;
+font-size: 1.2vw;
+border: none;
+transition: all 0.5s;
+}
+.sign-out-button:hover{
+background-color: rgb(27, 103, 255);
+color: white;
+}
+.users_container{
+font-size: 1vw;
+margin-top: 2%;
+border: 1px solid black;
+}
+.search-wrapper{
+margin-top: 2%;
+margin-left: 2vw;
+}
+.search{
+height: 2vw;
+width: 20vw;
+border-radius: 1vw;
+padding: 1vw;
+}
+.name_header{
+margin-left: 5%;
+}
+.header{
+display: flex;
+gap: 20vw;
+}
+.user{
+display: flex;
+margin-left: 5%;
+}
+.user{
+font-size: 0.7vw;
+word-wrap: break-word
+}
+.actions_header{
+margin-left: 4%;
+}
+.search-wrapper{
+margin-top: 0%;
+}
+.user_name{
+width: 20vw;
+}
+.user_email{
+height: 50vw;
+margin-left: 5%;
+width: 23vw;
+height: fit-content;
+}
+.user_uid{
+margin-left: 2%;
+width: 25vw;
+}
+.view{
+font-size: 1vw;
+margin-left: 7%;
+width: 5%;
+height: 3vw;
+border-radius: 1vw;
+cursor: pointer;
+border: green solid 0.2vw;
+color: green;
+transition: all 0.5s;
+}
+.view:hover{
+background-color:green;
+color: white;
+}
+.delete{
+font-size: 1vw;
+color: rgb(255, 0, 0);
+border: rgb(248, 0, 0) solid 0.2vw;
+cursor: pointer;
+margin-left: 2%;
+width: 5%;
+height: 3vw;
+border-radius: 1vw;
+transition: all 0.5s;
+}
+.delete:hover{
+background-color: rgb(248, 0, 0);
+color: white;
+}
+.hide{
+display: none;
+}
+.modal {
+transition: all 1s;
+display: none; 
+position: fixed; 
+z-index: 1; 
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%; 
+overflow: auto; 
+background-color: rgb(0,0,0); 
+background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+background-color: rgb(119, 120, 135);
+margin: 15% auto; 
+padding: 20px;
+min-height: 80vh;
+border: 1px solid #888;
+width: 80%; 
+}
+.close {
+color: #aaa;
+float: right;
+margin-right: -4vh;
+font-size: 40px;
+font-weight: bold;
+width: 7vh;
+margin-top: -2vh;
+transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+.name_info_div{
+display: flex;
+}
+.email_info_div{
+display: flex;
+}
+.user_name_modal{
+font-size: 1.5vw;
+width: 30vw;
+height: 2vw;
+padding: 0.5vw;
+margin-top: 0.75vw;
+margin-left: 5%;
+}
+.user_email_modal{
+width: 30vw;
+font-size: 1.5vw;
+height: 2vw;
+padding: 0.5vw;
+margin-top: 0.75vw;
+margin-left: 5%;
+}
+.user_info_save_but{
+float: right;
+border: black solid .2vw ;
+color: rgb(0, 0, 0);
+border-radius: 1vw;
+margin-top: -5%;
+height: 3vw;
+width: 5vw;
+margin-right: 40%;
+cursor: pointer;
+transition: all 0.5s;
+}
+.user_info_save_but:hover{
+background-color: black;
+color: white;
+}
+.password_reset{
+float: right;
+border: rgb(0, 81, 255) solid .2vw ;
+color: rgb(0, 81, 255);
+border-radius: 1vw;
+margin-top: -5%;
+height: 3vw;
+width: 10vw;
+margin-right: 25%;
+cursor: pointer;
+transition: all 0.5s;
+}
+.password_reset:hover{
+background-color: rgb(0, 81, 255);
+color: white;
+}
+.loading_wrapper{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000000;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+.book{
+    background-color: rgb(162, 159, 159);
+    border-radius: 2vw;
+    padding: 1vw;
+    margin-top: 1vw;
+}
+.book_action{
+    margin-top: -5%;
+    height: 3vw;
+    width: 6vw;
+    float: right;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: green;
+    text-align: center;
+    border: solid green 0.2vw;
+    transition: all 0.25s;
+}
+.book_action:hover{
+    background-color: green;
+    color: white;   
+}
+.cancel_hold{
+    margin-top: -5%;
+    height: 3vw;
+    width: 6vw;
+    float: right;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    border: solid rgb(255, 0, 0) 0.2vw;
+    margin-right: 8vw;
+    transition: all 0.25s;
+}
+.cancel_hold:hover{
+    background-color: red;
+    color: white;
+}
+.hold_or_checkout_book{
+    display: flex;
+}
+.book_id_input{
+    width: 10vw;
+    font-size: 1.5vw;
+    height: 2vw;
+    padding: 0.5vw;
+    margin-top: 0.75vw;
+    margin-left: 2%;
+}
+.check_availibility{
+    margin-left: 2%;
+    height: 3vw;
+    margin-top: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    border: solid rgb(255, 0, 195) 0.2vw;
+    color: rgb(255, 0, 251);
+    transition: all 0.5s;
+}
+.check_availibility:hover{
+    background-color: rgb(255, 0, 195);
+    color: white;
+}
+.modal_2{
+    transition: all 1s;
+    display: none; 
+    position: fixed; 
+    z-index: 3; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal_2_content{
+    background-color: rgb(119, 120, 135);
+    margin: 15% auto; 
+    padding: 20px;
+    min-height: 80vh;
+    border: 1px solid #888;
+    width: 80%; 
+}
+.close_modal_2{
+    color: #aaa;
+    float: right;
+    margin-right: -4vh;
+    font-size: 40px;
+    font-weight: bold;
+    width: 7vh;
+    margin-top: -2vh;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+.close_modal_2:hover{
+    color: black;
+}

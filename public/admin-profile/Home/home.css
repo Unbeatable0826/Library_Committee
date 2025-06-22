@@ -1,0 +1,81 @@
+.header-square{
+    display: flex;
+    height: fit-content;
+    padding: 0.2vw;
+    margin-top: -0.2%;
+    background-color: rgb(13, 4, 255);
+    color: white;
+    font-size: 1.5vw;
+}
+.welcoming-text{
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 50vw;
+    height: 0vw;
+    
+}
+.home_button{
+    margin-left: 13%;
+    padding: 1vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border: none;
+    transition: all 0.5s;
+    border-radius: 1vw;
+}
+.home_button:hover{
+    background-color: rgb(27, 103, 255);
+    color: white;
+}
+.users_button{
+    border-radius: 1vw;
+    padding: 1vw;
+    margin-left: 1%;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border: none;
+    transition: all 0.5s;
+}
+.users_button:hover{
+    background-color: rgb(27, 103, 255);
+    color: white;
+}
+.books_button{
+    padding: 1vw;
+    margin-left: 1%;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border: none;
+    transition: all 0.5s;
+    border-radius: 1vw;
+}
+.books_button:hover{
+    background-color: rgb(27, 103, 255);
+    color: white;
+}
+.local_profile_button{
+    border-radius: 1vw;
+    margin-left: 1%;
+    padding: 1vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border: none;
+    transition: all 0.5s;
+}
+.local_profile_button:hover{
+    background-color: rgb(27, 103, 255);
+    color: white;
+}
+.sign-out-button{
+    border-radius: 1vw;
+    margin-left: 1%;
+    padding: 1vw;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border: none;
+    transition: all 0.5s;
+}
+.sign-out-button:hover{
+    background-color: rgb(27, 103, 255);
+    color: white;
+}

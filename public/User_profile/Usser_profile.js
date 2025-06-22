@@ -95,8 +95,10 @@
         const auth = getAuth(app);
         const userRef = doc(db, "users", user_uid);
         try{
-        await setDoc(userRef, { email: email, name: name}, { merge: true });
+        alert(String(auth.currentUser))
         await updateEmail(auth.currentUser, email);
+        await setDoc(userRef, { email: email, name: name}, { merge: true });
+        
         alert("Successfully Saved");}
         catch(error){
             alert(error)
@@ -108,12 +110,6 @@
     let reset_email = login_email.value;
     await sendPasswordResetEmail(auth, reset_email);
     alert("Please Check Your Email  For A Password Reset")
-
-
-
-
-
-        
     })
 
     const mobile_signout = document.querySelector('.sign-out-mobile');

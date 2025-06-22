@@ -97,6 +97,7 @@ onAuthStateChanged(auth, async (user) => {
                         clone.querySelector('.book_img').src = curr_book.img;
                         clone.querySelector('.cancel_button').textContent = "Cancel" + book[1]
                         clone.querySelector('.cancel_button').dataset.bookId = book[1]; 
+                        // add wait time 
                         bookList.append(clone)
                     }
                 }
@@ -106,8 +107,6 @@ onAuthStateChanged(auth, async (user) => {
                         let bookREF = ref(rtdb, 'books/' + book[1])
                         let thingy = await get(bookREF)
                         let curr_book = thingy.val();
-                        console.log(curr_book.tittle);
-                        console.log(curr_book.author);
                         if (book[0] == "pickup"){
                             let thingy  = new Date(Number(curr_book.holds[0].split("&&&")[2]));
                             clone.querySelector('.wait_time').textContent = "Pickup By: " + thingy.toLocaleDateString();
@@ -124,12 +123,12 @@ onAuthStateChanged(auth, async (user) => {
                         }
                         if (num != 0 && curr_book.checkoutby != ""){
                             let now = new Date()
-                            now.setDate(now.getDate() + (num + 2) * 14)
+                            now.setDate(now.getDate() + (num + 1) * 14)
                             thingy = "Estimated Date: " + now.toLocaleDateString();
 
                         }else if(num != 0 && curr_book.checkoutby == ""){
                             let now = new Date()
-                            now.setDate(now.getDate() + (num+ 1)  * 14)
+                            now.setDate(now.getDate() + (num)  * 14)
                             thingy = "Estimated Date: " + now.toLocaleDateString();
                         }
                         clone.querySelector('.wait_time').textContent = thingy;

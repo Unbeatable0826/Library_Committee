@@ -402,7 +402,7 @@ modal_pickup.addEventListener('click', async() =>{
                             'tittle': "" + book_.tittle,
                             'email': "" + user_email,
                             'bookid': "" + bookId,
-                        })
+                                                })
                         })
                         .then(response => {
                         if (!response.ok) {
