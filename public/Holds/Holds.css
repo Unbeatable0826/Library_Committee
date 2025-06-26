@@ -27,7 +27,8 @@
         display: flex;
     }
     .book_img{
-    height: auto;
+    height: 20vw;
+    
     width: 15vw;
     border-radius: 2vw;
     }
@@ -330,6 +331,7 @@
     .book_img{
         margin-left: -10%;
         width: 30vw;
+        height: fit-content;
     }
     .cancel_button{
         height: 10vw;

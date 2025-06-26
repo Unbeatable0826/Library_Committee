@@ -346,12 +346,14 @@ color: white;
     background-color: rgba(0,0,0,0.4); 
 }
 .modal_2_content{
-    background-color: rgb(119, 120, 135);
+    background-color: rgb(93, 37, 37);
     margin: 15% auto; 
     padding: 20px;
-    min-height: 80vh;
+    min-height: 50vh;
     border: 1px solid #888;
     width: 80%; 
+    color: rgb(255, 255, 255);
+    border-radius: 3vw;
 }
 .close_modal_2{
     color: #aaa;
@@ -366,4 +368,124 @@ color: white;
 }
 .close_modal_2:hover{
     color: black;
+}
+.modal_2_description{
+    background-color: rgb(132, 101, 101);
+    height: 10vw;
+    width: fit-content;
+    overflow-y: auto;
+    font-size: 1.5vw;
+    padding: 1vw;
+    border-radius: 2vw;
+}
+.modal_2_book_checkout{
+    margin-left: 90%;
+    height: 3vw;
+    font-size: 1.25vw;
+    margin-top: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    border: solid rgb(203, 21, 21) 0.2vw;
+    color: rgb(203, 21, 21);
+    transition: all 0.5s;
+    width: 8vw;
+}
+.modal_2_book_checkout:hover{
+    background-color: rgb(203, 21, 21);
+    color: white;
+}
+
+.modal_3{
+    transition: all 1s;
+    display: none; 
+    position: fixed; 
+    z-index: 3; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal_3_content{
+    background-color: rgb(146, 142, 255);
+    margin: 15% auto; 
+    padding: 20px;
+    min-height: 32vw;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 3vw;
+    color: white;
+}
+.close_modal_3{
+    color: #ffffff;
+    float: right;
+    margin-right: -4vh;
+    font-size: 40px;
+    font-weight: bold;
+    width: 7vh;
+    margin-top: -2vh;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+.close_modal_3:hover{
+    color: black;
+}
+.send_custom_email{
+    height: 3vw;
+    width: fit-content;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: rgb(8, 86, 60);
+    border: solid rgb(8, 86, 60) 0.2vw;
+    transition: all 0.2s;
+}
+.send_custom_email:hover{
+    background-color: rgb(8, 86, 60);
+    color: white;
+}
+.subject_div{
+    display: flex;
+}
+.email_subject{
+    font-size: 1.5vw;
+    width: 30vw;
+    border: none;
+    outline: none;
+    margin-top: 1vw;
+    height: 3vw;
+    margin-left: 2%;
+}
+.message_div{
+    display: flex;
+}
+.email_message{
+    margin-left: 1%;
+    height: 15vw;
+    width: 60vw;
+}
+.modal_3_send{
+    margin-top: 2%;
+    margin-left: 90%;
+    height: 3vw;
+    width: 5vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    font-size: 1.25vw;
+    background-color: blue;
+    color: white;
+    border: none;
+    transition: all 0.25s;
+}
+.modal_3_send:hover{
+    height: 4vw;
+    width: 6vw;
+    margin-left: 89%;
+    margin-top: 1.5%;
+    border-radius: 1.5vw;
+}
+.modal_3_send:active{
+    opacity: 0.5;
 }

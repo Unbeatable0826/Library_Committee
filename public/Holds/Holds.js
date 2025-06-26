@@ -94,7 +94,11 @@ onAuthStateChanged(auth, async (user) => {
                         book[0] = book[0][0].toUpperCase() + book[0].substr(1)
                         clone.querySelector('.book_hold').textContent = "Type: " + book[0];
                         clone.querySelector('.book_id').textContent = "BookId: " + book[1];
-                        clone.querySelector('.book_img').src = curr_book.img;
+                        if (curr_book.img != ""){
+                            clone.querySelector('.book_img').src = curr_book.img;
+                        }else{
+                            clone.querySelector('.book_img').src = "https://th.bing.com/th/id/OIP.SQOMCf7wp-hciCmo3Sr4OQHaHa?rs=1&pid=ImgDetMain";
+                        }
                         clone.querySelector('.cancel_button').textContent = "Cancel" + book[1]
                         clone.querySelector('.cancel_button').dataset.bookId = book[1]; 
                         // add wait time 
@@ -112,8 +116,8 @@ onAuthStateChanged(auth, async (user) => {
                             clone.querySelector('.wait_time').textContent = "Pickup By: " + thingy.toLocaleDateString();
                         }else{
                         let thingy = "Estimated Date: Unknown"
-                        let num = 0
-                        for (let x = 1; x < curr_book.holds.length; x++){
+                        let num = -1
+                        for (let x = 0; x < curr_book.holds.length; x++){
                             if (curr_book.holds[x].includes(user.uid)){
                                 num = x;
                                 break;
@@ -121,12 +125,12 @@ onAuthStateChanged(auth, async (user) => {
                             }
 
                         }
-                        if (num != 0 && curr_book.checkoutby != ""){
-                            let now = new Date()
-                            now.setDate(now.getDate() + (num + 1) * 14)
+                        if (num != -1 && curr_book.checkoutby != ""){
+                            let now = new Date(Number(curr_book.checkoutby.split("&&&")[1]))
+                            now.setDate(now.getDate() + (num) * 14)
                             thingy = "Estimated Date: " + now.toLocaleDateString();
 
-                        }else if(num != 0 && curr_book.checkoutby == ""){
+                        }else if(num != -1 && curr_book.checkoutby == ""){
                             let now = new Date()
                             now.setDate(now.getDate() + (num)  * 14)
                             thingy = "Estimated Date: " + now.toLocaleDateString();
@@ -141,7 +145,11 @@ onAuthStateChanged(auth, async (user) => {
                         clone.querySelector('.cancel_button').textContent = book[0]
                         clone.querySelector('.book_hold').textContent = "Type: " + book[0];
                         clone.querySelector('.book_id').textContent = "BookId: " + book[1];
-                        clone.querySelector('.book_img').src = curr_book.img;
+                        if (curr_book.img != ""){
+                            clone.querySelector('.book_img').src = curr_book.img;
+                        }else{
+                            clone.querySelector('.book_img').src = "https://th.bing.com/th/id/OIP.SQOMCf7wp-hciCmo3Sr4OQHaHa?rs=1&pid=ImgDetMain";
+                        }
                         clone.querySelector('.cancel_button').textContent = "Cancel " + book[0]
                         clone.querySelector('.cancel_button').dataset.bookId = book[1]; 
                         bookList.append(clone)
@@ -228,10 +236,10 @@ bookList.addEventListener("click", async(event) => {
     const docSnap = docSnapshot.data()
     
      if (docSnap.hold1.split("&&")[1] == book.dataset.bookId){
-         await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
-          await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
-          await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-          await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+        await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+        await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+        await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+        await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
         await setDoc(userDocRef, {hold3: ""}, {merge: true});
         await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
      }

@@ -90,6 +90,19 @@ cursor: pointer;
 .Login_redirect_text:active{
 opacity: 0.5;
 }
+.loading_wrapper{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000000;
+    visibility: hidden;
+    transition: all 0.5s;
+}
 @media screen and (max-width: 600px){
     .signup_square{
         width: 80%;

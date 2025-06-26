@@ -55,6 +55,7 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+const loading_thingy = document.querySelector('.loading_wrapper')
 
   submit.addEventListener('click', function(event) {
     event.preventDefault();
@@ -62,7 +63,7 @@ onAuthStateChanged(auth, (user) => {
     const email = document.getElementById("email").value;
     const name = document.getElementById("name").value;
     const password = document.getElementById("password").value;
-    
+    loading_thingy.style.visibility = "visible";
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -85,13 +86,32 @@ onAuthStateChanged(auth, (user) => {
           hold2_time: 0,
           hold3_time: 0,
 
-        }).then(() => {
-          window.location.href="../Profile/profile-home.html";
+        }).then(async() => {
+            let response = await fetch("https://on-request-signup-email-448364021608.us-central1.run.app/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                'email': "" + user.email,
+                'name': "" + name,
+            })
+            }) 
+            const response_now = await response.text()
+            if (response_now.includes("IT WORKSSSSSSSSSS")){
+              loading_thingy.style.visibility = "hidden";
+              window.location.href="../Profile/profile-home.html";
+            }else{
+              loading_thingy.style.visibility = "hidden";
+              alert("ERROR");
+            }
         });
       })
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
+        loading_thingy.style.visibility = "hidden";
+
       });
   });
   

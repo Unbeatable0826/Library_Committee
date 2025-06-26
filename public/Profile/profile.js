@@ -14,6 +14,7 @@ const firebaseConfig = {
     databaseURL: "https://library-committee-9ac2d-default-rtdb.firebaseio.com/"
 };
 
+const loading_thingy = document.querySelector('.loading_wrapper')
 
 
 const app = initializeApp(firebaseConfig);
@@ -332,6 +333,9 @@ bookCardContainer.addEventListener('click', (event) => {
             modal_holds_number.style.display = "inline";
             var date = new Date();
             date.setDate(date.getDate() + book.holds.length * 14)
+            if (book.checkoutby != ""){
+                date.setDate(date.getDate() + 14);
+            }
             modal_holds_number.textContent = "Current Holds: " + book.holds.length + " Estimated Date: " + date.toLocaleDateString(); 
         }
         modal_bookID.textContent = "BookID: " + book.id;
@@ -371,9 +375,43 @@ modal_pickup.addEventListener('click', async() =>{
         const book_snapshot = await get(bookREF);
         let book_  = book_snapshot.val();
         book.holds = book_.holds;
-        
+        userDocRef = doc(db, "users", userID);
+        const docSnapshot = await getDoc(userDocRef);
+        let email;
+        let name;
+        if (docSnapshot.exists()) {
+            const userData = docSnapshot.data();
+            email = userData.email;
+            name = userData.name;
+            book1u = userData.book1;
+            book2u = userData.book2;
+            book3u = userData.book3;
+            hold1u = userData.hold1;
+            hold2u = userData.hold2;
+            hold3u = userData.hold3;
+            user_email = userData.email;
+            if(book1u){
+                book1 = book1u.split("&&")[1];
+            }else{book1 = ""}
+            if(book2u){
+                book2 = book2u.split("&&")[1];
+            }else{book2 = ""}
+            if(book3u){
+                book3 = book3u.split("&&")[1];
+            }else {book3 = ""}
+            if(hold1u){
+                hold1 = hold1u.split("&&")[1];
+            }else{hold1 = ""}
+            if(hold2u){
+                hold2 = hold2u.split("&&")[1];
+            }else{hold2 = ""}
+            if(hold3u){
+                hold3 = hold3u.split("&&")[1];
+            }else{hold3 = ""}
+        }        
         if ((confirmation) ==  true){
             if (book.available && ![book1, book2, book3, hold1, hold2, hold3].includes(book.id) && (hold1 == "" || hold2 == "" || hold3== "")){
+                loading_thingy.style.visibility = "visible";
                 var updat_avail = {
                     avail: false,
                 }
@@ -382,7 +420,7 @@ modal_pickup.addEventListener('click', async() =>{
                     const book_curr =  ref(rtdb, 'books/' + bookId + '/holds/0')
                     const thingy = Date.now() + 604800000
                     set(book_curr, "pickup" + "&&&" + userID + "&&&" + thingy)
-                    .then(async () => {
+                    .then(async() => {
                         if (hold1 == "" || hold1 == null) {
                             await setDoc(userDocRef, { hold1: "pickup&&" + bookId, hold1_time: thingy }, { merge: true });
                         } else if (hold2 == "" || hold2 == null) {
@@ -392,7 +430,6 @@ modal_pickup.addEventListener('click', async() =>{
                         } else {
                             alert("Please inform an admin, there is a problem with the website");
                         }
-                        alert("Your Book Is Now On Hold :)")
                         await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
                         method: "POST",
                         headers: {
@@ -404,17 +441,16 @@ modal_pickup.addEventListener('click', async() =>{
                             'bookid': "" + bookId,
                                                 })
                         })
-                        .then(response => {
-                        if (!response.ok) {
-                            alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
-                        }
-                        })
+
+                        loading_thingy.style.visibility = "hidden";
+                        alert("Your Book Is Now On Hold :)")
                         
                         window.location.reload();
                     })
                 }
             }else if(book.available == false && ![book1, book2, book3, hold1, hold2, hold3].includes(book.id) && (hold1 == "" || hold2 == "" || hold3== "")){
                 if (book.holds[0] != ""){
+                loading_thingy.style.visibility = "visible"
                 var jop = book.holds.length
                 var updated = {
                 }
@@ -422,7 +458,7 @@ modal_pickup.addEventListener('click', async() =>{
                 const thingysss = Date.now() + 43200009000000000000;
                 updated[jop] = "hold" + "&&&" + userID + "&&&" + (thingysss);
                 update(ref(rtdb, 'books/' + bookId + "/holds/" ), updated)
-                .then(async () => {
+                .then(async() => {
                     if (hold1 == "" || hold1 == null) {
                         await setDoc(userDocRef, { hold1: "hold&&" + bookId, hold1_time: thingysss }, { merge: true });
                     } else if (hold2 == "" || hold2 == null) {
@@ -432,15 +468,31 @@ modal_pickup.addEventListener('click', async() =>{
                     } else {
                         alert("Please inform an admin, there is a problem with the website");
                     }
-        
+                    let response = await fetch("https://on-request-hold-email-448364021608.us-central1.run.app/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=UTF-8"
+                        },
+                        body: JSON.stringify({
+                            'email': "" + email,
+                            'name': "" + name,
+                            'tittle': "" + book_.tittle + " on hold",
+                        })
+                        })
+                    let thingy = await response.text()
+                    if (!thingy.includes("IT WORKSSSSSSSSSS")){
+                        alert("EMAIL ERROR")
+                    }
+                    loading_thingy.style.visibility = "hidden"
                     alert("Your Book is on Hold :)");
                     window.location.reload(); 
                 })
                 }
                 
                 else if(book.holds[0] == ""){
-
+                    loading_thingy.style.visibility = "visible"
                     const book_curr =  ref(rtdb, 'books/' + bookId + '/holds/0')
+                    await get(book_curr);
                     const thingys = Date.now() + 4320000000000000000;
                     set(book_curr, "hold" + "&&&" + userID + "&&&" + thingys)
                     .then(async () => {
@@ -453,7 +505,21 @@ modal_pickup.addEventListener('click', async() =>{
                         } else {
                             alert("Please inform an admin, there is a problem with the website");
                         }
-            
+                    let response = await fetch("https://on-request-hold-email-448364021608.us-central1.run.app/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=UTF-8"
+                        },
+                        body: JSON.stringify({
+                            'email': "" + email,
+                            'name': "" + name,
+                            'tittle': "" + book_.tittle + " on hold",
+                        })
+                    })
+                    let thingy = await response.text()
+                    if (!thingy.includes("IT WORKSSSSSSSSSS")){
+                        alert("EMAIL ERROR")
+                    }
                         alert("Your Book is on Hold :)");
                         window.location.reload(); 
                     })
