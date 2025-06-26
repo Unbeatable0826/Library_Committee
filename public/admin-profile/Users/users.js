@@ -16,6 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const loading_thingy = document.querySelector('.loading_wrapper')
 const rtdb = getDatabase(app); 
 const users_template = document.getElementById("data-user-template");
 const usersList = document.querySelector(".user_card_container");
@@ -42,6 +43,7 @@ onAuthStateChanged(auth, async (user) => {
                     clone.querySelector('.user_email').textContent = doc.data().email;
                     clone.querySelector('.user_uid').textContent = doc.id;
                     clone.querySelector('.view').dataset.userId = doc.id;
+                    clone.querySelector('.delete').dataset.userId = doc.id
                     if (doc.data().admin){
                         clone.querySelector('.user_name').style.color = "red";
                     }
@@ -89,7 +91,6 @@ search.addEventListener("input", () =>{
         user.element.classList.toggle("hide", !isVisible);
         })
 });
-const delete_but = document.querySelector('.delete')
 // Delete button thingyu
 
 const close_modal = document.querySelector('.close');
@@ -205,6 +206,39 @@ usersList.addEventListener('click', async(event) => {
             }
         }
         modal.style.display = 'block';
+    }else if (event.target.matches('.delete')){
+        const user = event.target.closest('.user');
+        userId = event.target.dataset.userId;
+        let curr_user = doc(db, "users", userId);
+        const snap = await getDoc(curr_user);
+        const user_data = snap.data()
+        const confirmation = confirm("Are you sure you want to delete " + user_data.name + "'s account?")
+        if (confirmation && user_data.hold1 == "" && user_data.hold2 == "" && user_data.hold3 == "" && user_data.book1 == "" && user_data.book2 == "" && user_data.book3 == ""){
+            loading_thingy.style.visibility = "visible";
+            let response =  await fetch("https://deleteaccount-448364021608.us-central1.run.app/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8"
+            },
+            body: JSON.stringify({
+                'email': "" + user_data.email,
+                'userid': "" + userId,
+                'auth_user': "" + userID,
+                'name': "" + user_data.name,
+            })
+            })
+            const request = await response.text()
+            if (request.includes("IT WORK")){
+                alert("ACCOUNT DELETION SUCCESS")
+            }else{
+                alert("ERROR ,alert Admin")
+            }
+
+        }else{
+            if (!(user_data.hold1 == "" && user_data.hold2 == "" && user_data.hold3 == "" && user_data.book1 == "" && user_data.book2 == "" && user_data.book3 == "")){
+                alert("User Must have no holds or books checked out before deletion!!!!");
+            }
+        }
     }
 })
 
@@ -258,7 +292,6 @@ check_avail_but.addEventListener('click', async() => {
         }
 })
 
-const loading_thingy = document.querySelector('.loading_wrapper')
 const save_button = document.querySelector('.user_info_save_but')
 save_button.addEventListener('click', async(event) => {
     const info_name_change = document.querySelector('.user_name_modal').value;
@@ -607,82 +640,86 @@ user_info_modal.addEventListener('click', async(event) => {
         let thingy = await get(bookref)
         let curr_book = thingy.val();
         let line;
-        for (let x = 0; x < curr_book.holds.length; x++){
+        const confirmation = confirm("Are you sure you want to delete this hold/pickup for bookID: " + String(event.target.dataset.bookid));
+        if (confirmation){
+            for (let x = 0; x < curr_book.holds.length; x++){
             if (curr_book.holds[x].includes(userId)){
                 line = x;
                 break;
             }
-        }
-        let hold_info = curr_book.holds[line].split("&&&")
-        curr_book.holds.splice(line, 1)
-        if (curr_book.holds == ""){
-            if (curr_book.checkoutby == ""){
-                update(bookref, {avail: true,})
-                alert("Successfully Deleted Hold/Pickup")
             }
-            curr_book.holds = [""];
-        }else if(hold_info[0] == "pickup"){
-            loading_thingy.style.visibility = "visible";
-            let book_thing = curr_book.holds[0].split("&&&")
-            book_thing[0] = "pickup"
-            const user_2_time = Date.now() + 604800000
-            book_thing[2] = "" + user_2_time;
-            curr_book.holds[0] = book_thing.join("&&&")
-            const user_2_docref = doc(db, "users", String(book_thing[1]));
-            const user_2_sn = await getDoc(user_2_docref);
-            const user_2_snap = user_2_sn.data();
-            if (user_2_sn.exists()){
-                if (user_2_snap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
-                    await setDoc(user_2_docref, { hold1: "pickup&&" + String(event.target.dataset.bookid), hold1_time: user_2_time}, { merge: true });
-                }else if(user_2_snap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
-                    await setDoc(user_2_docref, { hold2: "pickup&&" + String(event.target.dataset.bookid), hold2_time: user_2_time}, { merge: true });
-                }else if(user_2_snap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
-                    await setDoc(user_2_docref, { hold3: "pickup&&" + String(event.target.dataset.bookid), hold2_time: user_2_time}, {merge: true});
+            let hold_info = curr_book.holds[line].split("&&&")
+            curr_book.holds.splice(line, 1)
+            if (curr_book.holds == ""){
+                if (curr_book.checkoutby == ""){
+                    update(bookref, {avail: true,})
+                    alert("Successfully Deleted Hold/Pickup")
                 }
-                await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json; charset=UTF-8"
-                },
-                body: JSON.stringify({
-                    'tittle': "" + curr_book.tittle,
-                    'email': "" + user_2_snap.email,
-                    'bookid': "" + String(event.target.dataset.bookid),
-                })
-                })
-                .then(response => {
-                if (!response.ok) {
-                    alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
+                curr_book.holds = [""];
+            }else if(hold_info[0] == "pickup"){
+                loading_thingy.style.visibility = "visible";
+                let book_thing = curr_book.holds[0].split("&&&")
+                book_thing[0] = "pickup"
+                const user_2_time = Date.now() + 604800000
+                book_thing[2] = "" + user_2_time;
+                curr_book.holds[0] = book_thing.join("&&&")
+                const user_2_docref = doc(db, "users", String(book_thing[1]));
+                const user_2_sn = await getDoc(user_2_docref);
+                const user_2_snap = user_2_sn.data();
+                if (user_2_sn.exists()){
+                    if (user_2_snap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
+                        await setDoc(user_2_docref, { hold1: "pickup&&" + String(event.target.dataset.bookid), hold1_time: user_2_time}, { merge: true });
+                    }else if(user_2_snap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
+                        await setDoc(user_2_docref, { hold2: "pickup&&" + String(event.target.dataset.bookid), hold2_time: user_2_time}, { merge: true });
+                    }else if(user_2_snap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
+                        await setDoc(user_2_docref, { hold3: "pickup&&" + String(event.target.dataset.bookid), hold2_time: user_2_time}, {merge: true});
+                    }
+                    await fetch("https://on-request-emailing-b4rcicpmhq-uc.a.run.app/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify({
+                        'tittle': "" + curr_book.tittle,
+                        'email': "" + user_2_snap.email,
+                        'bookid': "" + String(event.target.dataset.bookid),
+                    })
+                    })
+                    .then(response => {
+                    if (!response.ok) {
+                        alert("SOMETHING HAS GONE HORRRIBLY WRONG IDK WHAT")
+                    }
+                    })
+                    alert("Successfully Deleted Hold/Pickup")
+                }else{
+                    alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
                 }
-                })
-                alert("Successfully Deleted Hold/Pickup")
-            }else{
-                alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
             }
+            update(bookref, {holds: curr_book.holds,})
+            const userDocRef = doc(db, "users", userId);
+            const docSnapshot = await getDoc(doc(db, "users", userId));
+            const docSnap = docSnapshot.data()    
+            if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
+                await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+                await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+                await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+            }
+            if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
+                await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+            }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
+                await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+            }
+            if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup")}
+            loading_thingy.style.visibility = "hidden"
         }
-        update(bookref, {holds: curr_book.holds,})
-        const userDocRef = doc(db, "users", userId);
-        const docSnapshot = await getDoc(doc(db, "users", userId));
-        const docSnap = docSnapshot.data()    
-        if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
-            await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
-            await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
-            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-            await setDoc(userDocRef, {hold3: ""}, {merge: true});
-            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-        }
-        if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
-            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-            await setDoc(userDocRef, {hold3: ""}, {merge: true});
-            await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
-        }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
-            await setDoc(userDocRef, {hold3: ""}, {merge: true});
-            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-        }
-        if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup")}
-        loading_thingy.style.visibility = "hidden"
+        
 
     }
 
