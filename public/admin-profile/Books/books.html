@@ -7,8 +7,13 @@
     <link rel="icon" type="image/x-icon" href="../../Book_image.jpeg">
     <link rel="stylesheet" href="books.css" >
     <script type="module" src="books.js" defer></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    
 </head>
 <body>
+    <div class="loading_wrapper">
+            <dotlottie-player src="https://lottie.host/820a0d74-1896-49f0-9703-19e3e1e977c3/JLRi1A8G19.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    </div>
     <!-- The Header Admin Square -->
     <div class="header-square">
         <div class="buttons-profile">
@@ -18,6 +23,69 @@
         <button class="books_button">Books</button>
         <button class="local_profile_button">Local Profile</button>
         <button class="sign-out-button">Sign Out</button>
+    </div>
+    <template id="data-book-template">
+        <div class="book">
+            <h1 class="book_tittle"></h1>
+            <h1 class="book_author"></h1>
+            <h1 class="book_holds"></h1>
+            <h1 class="checkoutby"></h1>
+            <h1 class="book_date"></h1>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+        </div>
+    </template>
+    <div class="book_container_">
+        <div class="header">
+            <h1 class="header_tittle">Tittle</h1>
+            <h1 class="header_author">Author</h1>
+            <h1 class="header_holds">Holds</h1>
+            <h1 class="header_checkout">Checkout</h1>
+            <h1 class="header_checkin">Due By</h1>
+            <h1 class="header_actions">Actions</h1>
+        </div>
+        <div class="sorting_things">
+            <div class="search-wrapper">
+                <label for="search" class="label-search">Search Books: </label>
+                <input type="search" id="search" class="search" placeholder="Search by Book ID, Tittle or Author">
+            </div>
+            <form class="sort_select">
+                <label for="sortby">Sort By: </label>
+                <select name="sortby" id="sortby" class="sorting">
+                    <option value="custom" selected="selected">Custom</option>
+                    <option value="author">Author LN</option>
+                    <option value="tittle">Tittle</option>
+                    <option value="holds">Popularity</option>
+                </select>
+            </form>
+            <div class="Juvenile_FICTION">
+                <input type="checkbox" id="JFICm" name="JFICm"  value="JFICm" class="JFICm">
+                <label for="JFICm" >Juvenile Fiction</label><br>
+            </div>
+            <div class="Fiction">
+                <input type="checkbox" id="FICm" name="FICm"  value="FICm" class="FICm">
+                <label for="FICm" >Fiction</label><br>
+            </div>
+            <div class="Young_Adult">
+                <input type="checkbox" id="YAm" name="YAm" class="YAm" value="YAm">
+                <label for="YAm" >Young Adult</label><br>
+            </div>
+            <div class="book_available">
+                <input type="checkbox" id="availy" name="availy" class="availy" value="availy">
+                <label for="availy">Available</label>
+            </div>
+            <div class="pickup_ready">
+                <input type="checkbox" id="pickup" name="pickup" class="pickup" value="pickup">
+                <label for="pickup">Pickup</label>
+            </div>
+            <div class="checked_out">
+                <input type="checkbox" id="checked" name="checked" class="checked" value="checked">
+                <label for="checked">C-Out</label>
+
+            </div>
+            <button class="book_add">Add +</button>
+        </div>
+        <div class="book_container"></div>
     </div>
 </body>
 </html>

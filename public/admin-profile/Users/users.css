@@ -82,7 +82,6 @@ color: white;
 .users_container{
 font-size: 1vw;
 margin-top: 2%;
-border: 1px solid black;
 }
 .search-wrapper{
 margin-top: 2%;
@@ -489,3 +488,14 @@ color: white;
 .modal_3_send:active{
     opacity: 0.5;
 }
+.user_card_container{
+    border: 1px solid black;
+    margin-top: 1%;
+}
+.user{
+    margin-top: 0.5%;
+}
+
+
+
+

@@ -79,3 +79,157 @@
     background-color: rgb(27, 103, 255);
     color: white;
 }
+.header{
+    display: flex;
+}
+.sorting_things{
+    display: flex;
+    font-size: 1.3vw;
+    margin-left: 2%;
+}
+.search{
+    height: 2vw;
+    width: 20vw;
+}
+.header_tittle{
+    margin-left: 5%;
+}
+.header_author{
+    margin-left: 20%;
+}
+.header_holds{
+    margin-left: 13%;
+}
+.header_checkout{
+    margin-left: 2%;
+}
+.header_actions{
+    margin-left: 10%;
+}
+.sort_select{
+    margin-left: 1%;
+
+}
+option{
+    cursor: pointer;
+}
+.Juvenile_FICTION{
+    margin-left: 2%;
+}
+.Fiction{
+    margin-left: 1%;
+}
+.Young_Adult{
+    margin-left: 1%;
+}
+.book{
+    display: flex;
+    background-color: rgb(158, 144, 144);
+    border-radius: 1vw;
+    margin-top: 2%;
+}
+.book_tittle{
+    margin-left: 1%;
+    width: 24vw;
+}
+.book_author{
+    width: 20vw;
+    margin-left: 4%;
+}
+.book_holds{
+    margin-left: 2%;
+    width: 3vw;
+}
+.checkoutby{
+    margin-left: 3%;
+    width: 10vw;
+}
+.header_checkin{
+margin-left: 5%;
+}
+.book_date{
+    margin-left: 3%;
+}
+.edit{
+    margin-left: 4%;
+    width: 5vw;
+    font-size: 1.5vw;
+    height: 3vw;
+    color: green;
+    margin-top: 2%;
+    border: solid green 0.2vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.edit:hover{
+    color: white;
+    background-color: green;
+}
+.delete{
+    margin-left: 1%;
+    width: 6vw;
+    font-size: 1.5vw;
+    height: 3vw;
+    color: red;
+    margin-top: 2%;
+    border: solid red 0.2vw;
+    cursor: pointer;
+    border-radius: 1vw;
+    transition: all 0.25s;
+}
+.delete:hover{
+    color: white;
+    background-color: red;
+}
+.book_available{
+    margin-left: 1%;
+}
+.book_date{
+    width: 10vw;
+}
+.book_container{
+    display: flex;
+    flex-direction: column;
+}
+.book_add{
+    margin-left: 3%;
+    height: 2vw;
+    margin-top: -0.5%;
+    width: 5vw;
+    font-size: 1vw;
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.2vw;
+    transition: all 0.25s;
+}
+.book_add:hover{
+    opacity: 0.7;
+}
+.book_add:active{
+    opacity: 0.5;
+}
+.pickup_ready{
+    margin-left: 1%;
+}
+.checked_out{
+    margin-left: 2%;
+}
+.hide{
+display: none;
+}
+.loading_wrapper{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000000;
+    visibility: hidden;
+    transition: all 0.5s;
+}
