@@ -105,12 +105,14 @@ async function fetchBooks() {
                 author.textContent = "Author: " + book.author;
                 genre.textContent = "Genre: " + book.genre;*/
                 const thingy = card.querySelector("img");
-                if (book.img) {
-                    
+                if (book.img.includes("covers.openlibrary.org")) {
                     thingy.src=book.img.substring(0, book.img.length - 4) + "-M.jpg";
                    // thingy.src=book.img
                     
-                } else {
+                } else if (book.img != ""){
+                    thingy.src = book.img;
+                }
+                else {
                     thingy.src="https://th.bing.com/th/id/OIP.SQOMCf7wp-hciCmo3Sr4OQHaHa?rs=1&pid=ImgDetMain";
                 }
                 card.dataset.bookId = bookID;
@@ -135,8 +137,8 @@ const YA = document.querySelector(".YA")
 const JFICm = document.querySelector(".JFICm");
 const FICm = document.querySelector(".FICm");
 const YAm = document.querySelector(".YAm");
-
-
+const NFIC = document.querySelector('.NFIC')
+const NFICm = document.querySelector('.NFICm');
 
 
 
@@ -146,11 +148,14 @@ search.addEventListener("input", does_stuff)
 JFIC.addEventListener("input", does_stuff);
 FIC.addEventListener("input", does_stuff);
 YA.addEventListener("input", does_stuff);
+NFIC.addEventListener('input', does_stuff);
+
 
 
 JFICm.addEventListener("input", does_stuff);
 FICm.addEventListener("input", does_stuff);
 YAm.addEventListener("input", does_stuff);
+NFICm.addEventListener('input', does_stuff)
 // does something, really anything
 // holds a value from some search thing
 function does_stuff(){
@@ -168,7 +173,10 @@ function does_stuff(){
         if (YA.checked || YAm.checked){
             match = match || (book.genre == "YA" || book.genre.toLowerCase() === "ya");
         }
-        if ((JFIC.checked == false && FIC.checked == false && YA.checked == false) && (JFICm.checked == false && FICm.checked == false && YAm.checked == false ) ){
+        if (NFIC.checked || NFICm.checked){
+            match = match || (book.genre == "NFIC" || book.genre.toLowerCase() === "nfic");
+        }
+        if ((JFIC.checked == false && FIC.checked == false && YA.checked == false && NFIC.checked == false) && (JFICm.checked == false && FICm.checked == false && YAm.checked == false  && NFICm.checked == false) ){
             match = true;
         }
         isVisible = isVisible && match;
@@ -320,8 +328,10 @@ bookCardContainer.addEventListener('click', (event) => {
             genre_thingy = "Juvenile Fiction";
         } else if (book.genre == "FIC") {
             genre_thingy = "Fiction";
-        } else {
+        } else if (book.genre == "YA"){
             genre_thingy = "Young Adult";
+        }else if (book.genre == "NFIC"){
+            genre_thingy = "Non-Fiction";
         }
 
         modal_tittle.textContent = "Title: " + book.tittle;

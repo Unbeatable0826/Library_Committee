@@ -193,12 +193,52 @@ bookList.addEventListener("click", async(event) => {
             alert("Successfully Deleted Hold/Pickup")
         }
         curr_book.holds = [""];
+        update(bookref, {holds: curr_book.holds,})
+        const docSnapshot = await getDoc(doc(db, "users", userID));
+        const docSnap = docSnapshot.data()
+        if (docSnap.hold1.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+            await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+        }
+        if (docSnap.hold2.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+        }if (docSnap.hold3.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+        }
     }else if(hold_info[0] == "pickup"){
         let book_thing = curr_book.holds[0].split("&&&")
         book_thing[0] = "pickup"
         const user_2_time = Date.now() + 604800000
         book_thing[2] = "" + user_2_time;
         curr_book.holds[0] = book_thing.join("&&&")
+        update(bookref, {holds: curr_book.holds,})
+        const docSnapshot = await getDoc(doc(db, "users", userID));
+        const docSnap = docSnapshot.data()
+        if (docSnap.hold1.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+            await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+        }
+        if (docSnap.hold2.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+            await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+        }if (docSnap.hold3.split("&&")[1] == book.dataset.bookId){
+            await setDoc(userDocRef, {hold3: ""}, {merge: true});
+            await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+        }
         const user_2_docref = doc(db, "users", String(book_thing[1]));
         const user_2_sn = await getDoc(user_2_docref);
         const user_2_snap = user_2_sn.data();
@@ -231,27 +271,7 @@ bookList.addEventListener("click", async(event) => {
             alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
         }
     }
-    update(bookref, {holds: curr_book.holds,})
-    const docSnapshot = await getDoc(doc(db, "users", userID));
-    const docSnap = docSnapshot.data()
-    
-     if (docSnap.hold1.split("&&")[1] == book.dataset.bookId){
-        await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
-        await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
-        await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-        await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-        await setDoc(userDocRef, {hold3: ""}, {merge: true});
-        await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-     }
-     if (docSnap.hold2.split("&&")[1] == book.dataset.bookId){
-        await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-        await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-        await setDoc(userDocRef, {hold3: ""}, {merge: true});
-        await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
-     }if (docSnap.hold3.split("&&")[1] == book.dataset.bookId){
-        await setDoc(userDocRef, {hold3: ""}, {merge: true});
-        await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-     }
+
      if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup")}
      window.location.reload(); 
 

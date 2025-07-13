@@ -201,7 +201,7 @@ usersList.addEventListener('click', async(event) => {
                     clone.querySelector('.cancel_hold').dataset.bookid = String(user_data[book].split("&&")[1]);
                 }else{
                     clone.querySelector('.book_action').textContent = "Check Out"
-                }
+                }   
                 user_info_modal.append(clone);
             }
         }
@@ -501,6 +501,7 @@ modal_3_send.addEventListener('click', async() => {
         if (thingy.includes("IT WORKSSSSSSSSSS")){
             loading_thingy.style.visibility = "hidden";
             alert("Email Sent");
+            window.location.href = "users.html";
         }else{
             loading_thingy.style.visibility = "hidden";
             alert("Something Has Gone Horribly Wrong, and there is an error" + thingy);
@@ -656,6 +657,27 @@ user_info_modal.addEventListener('click', async(event) => {
                     alert("Successfully Deleted Hold/Pickup")
                 }
                 curr_book.holds = [""];
+                update(bookref, {holds: curr_book.holds,})
+                const userDocRef = doc(db, "users", userId);
+                const docSnapshot = await getDoc(doc(db, "users", userId));
+                const docSnap = docSnapshot.data()    
+                if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+                    await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+                }
+                if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+                }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+                }
             }else if(hold_info[0] == "pickup"){
                 loading_thingy.style.visibility = "visible";
                 let book_thing = curr_book.holds[0].split("&&&")
@@ -663,6 +685,27 @@ user_info_modal.addEventListener('click', async(event) => {
                 const user_2_time = Date.now() + 604800000
                 book_thing[2] = "" + user_2_time;
                 curr_book.holds[0] = book_thing.join("&&&")
+                update(bookref, {holds: curr_book.holds,})
+                const userDocRef = doc(db, "users", userId);
+                const docSnapshot = await getDoc(doc(db, "users", userId));
+                const docSnap = docSnapshot.data()    
+                if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+                    await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+                }
+                if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+                }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+                }
                 const user_2_docref = doc(db, "users", String(book_thing[1]));
                 const user_2_sn = await getDoc(user_2_docref);
                 const user_2_snap = user_2_sn.data();
@@ -695,35 +738,39 @@ user_info_modal.addEventListener('click', async(event) => {
                     alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
                 }
             }
-            update(bookref, {holds: curr_book.holds,})
-            const userDocRef = doc(db, "users", userId);
-            const docSnapshot = await getDoc(doc(db, "users", userId));
-            const docSnap = docSnapshot.data()    
-            if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
-                await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
-                await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
-                await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-                await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-                await setDoc(userDocRef, {hold3: ""}, {merge: true});
-                await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+
+            if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup");
+                window.location.href = "users.html"
             }
-            if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
-                await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
-                await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
-                await setDoc(userDocRef, {hold3: ""}, {merge: true});
-                await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
-            }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
-                await setDoc(userDocRef, {hold3: ""}, {merge: true});
-                await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
-            }
-            if (hold_info[0] != "pickup"){alert("Successfully Deleted Hold/Pickup")}
             loading_thingy.style.visibility = "hidden"
         }
-        
-
     }
 
-
-
-
 })
+const modal_4 = document.querySelector('.modal_4');
+const notepad_modal_open = document.querySelector('.notepad_modal_open');
+const close_modal_4 = document.querySelector('.close_modal_4');
+const modal_4_notes = document.querySelector('.modal_4_notes');
+notepad_modal_open.addEventListener('click', async() => {
+    const docSnapshot = await getDoc(doc(db, "notes", "notes"));
+    const docSnap = docSnapshot.data()
+    modal_4_notes.value = "" + docSnap.notes;
+    modal_4.style.display = 'block';
+})
+close_modal_4.addEventListener('click', async() => {
+    modal_4.style.display = 'none';
+})
+const debounce = (fn, delay) => {
+    let timerId = null;
+    return function(...args){
+        clearTimeout(timerId);
+        timerId = setTimeout(() => fn.apply(this, args), delay);
+    };
+};
+
+async function update_notes_thingy() {
+    const thingy = doc(db, "notes", "notes")
+    await setDoc(thingy, {"notes": modal_4_notes.value}, {merge: true})
+}
+
+modal_4_notes.addEventListener('input', debounce(update_notes_thingy, 1000));

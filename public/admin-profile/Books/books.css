@@ -85,7 +85,7 @@
 .sorting_things{
     display: flex;
     font-size: 1.3vw;
-    margin-left: 2%;
+    margin-left: 1%;
 }
 .search{
     height: 2vw;
@@ -114,7 +114,7 @@ option{
     cursor: pointer;
 }
 .Juvenile_FICTION{
-    margin-left: 2%;
+    margin-left: 1%;
 }
 .Fiction{
     margin-left: 1%;
@@ -233,3 +233,334 @@ display: none;
     visibility: hidden;
     transition: all 0.5s;
 }
+.modal {
+transition: all 1s;
+display: none; 
+position: fixed; 
+z-index: 1; 
+left: 0;
+top: 0;
+width: 100%; 
+height: 100%; 
+overflow: auto; 
+background-color: rgb(0,0,0); 
+background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+background-color: rgb(132, 205, 211);
+margin: 15% auto; 
+padding: 20px;
+min-height: 80vh;
+border: 1px solid #888;
+width: 80%; 
+}
+.close {
+color: #aaa;
+float: right;
+margin-right: -4vh;
+font-size: 40px;
+font-weight: bold;
+width: 7vh;
+margin-top: -2vh;
+transition: color 0.2s;
+cursor: pointer;
+}
+.close:hover{
+    color: black;
+}
+
+
+.model_label_thingy{
+    margin-left: 42%;
+    font-size: 3vw;
+    margin-top: 0%;
+}
+
+.tittle_input{
+    font-size: 3vw;
+    cursor: text;
+
+}
+.tittle_new{
+    font-size: 2.5vw;
+    width: 40vw;
+}
+.isbn_input{
+    font-size: 3vw;
+    cursor: text;
+}
+.isbn_new{
+    font-size: 3vw;
+    cursor: text;
+}
+.book_id_input{
+    font-size: 2vw;
+}
+.author_input{
+    font-size: 3vw;
+}
+.author_new{
+    font-size: 2.5vw;
+    width: 30vw;
+}
+.book_condition{
+    font-size: 2vw;
+}
+.condition_new{
+    font-size: 1.7vw;
+}
+.book_genre_thingy{
+    font-size: 2vw;
+}
+.genre_new{
+    font-size: 1.7vw;
+}
+.data_fetch{
+    float: right;
+    height: 3vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    font-size: 1.5vw;
+    border-radius: 1vw;
+    border: none;
+    background-color: rgb(37, 72, 84);
+    color: white;
+    cursor: pointer;
+}
+.data_fetch:hover{
+    opacity: 0.7;
+}
+.data_fetch:active{
+    opacity: 0.5;
+}
+.book_image_thing{
+    font-size: 2vw;
+}
+.book_image_new{
+    width: 30vw;
+    padding-top: 0.5%;
+}
+.image_preview{
+    height: 10vw;
+    width: 7vw;
+}
+.save{
+    float: right;
+    margin-top: -4%;
+    font-size: 1.5vw;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    border: none;
+    color: white;
+    background-color: brown;
+    cursor: pointer;
+
+}
+.save:hover{
+    opacity: 0.7;
+}
+.save:active{
+    opacity: 0.5;
+}
+.modal_2{
+    transition: all 1s;
+    display: none; 
+    position: fixed; 
+    z-index: 3; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal_2_content{
+    background-color: rgb(167, 209, 137);
+    margin: 15% auto; 
+    padding: 20px;
+    min-height: 50vh;
+    border: 1px solid #888;
+    width: 80%; 
+    /* color: rgb(255, 255, 255); */
+}
+.close_modal_2{
+    color: #aaa;
+    float: right;
+    margin-right: -4vh;
+    font-size: 40px;
+    font-weight: bold;
+    width: 7vh;
+    margin-top: -2vh;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+.close_modal_2:hover{
+    color: black;
+}
+.modal_2_isbn_input{
+    margin-top: 2%;
+    font-size: 3vw;
+    display: flex;
+}
+.isbn_new_2{
+    font-size: 2vw;
+    margin-left: .5%;
+    width: 25vw;
+
+}
+.tittle_input_2{
+    font-size: 3vw;
+    display: flex;
+}
+.tittle_new_2{
+    margin-left: 0.5%;
+    font-size: 2vw;
+    width: 50vw;
+}
+.author_input_2{
+    font-size: 3vw;
+    display: flex;
+}
+.author_new_2{
+    width: 40vw;
+    font-size: 2vw;
+    margin-left: 0.5%;
+}
+.book_condition_2{
+    font-size: 3vw;
+}
+.condition_new_2{
+    font-size: 1.5vw;
+}
+.book_genre_thingy_2{
+    font-size: 3vw;
+}
+.genre_new_2{
+    font-size: 1.5vw;
+}
+.data_fetch_2{
+    height: 3vw;
+    width: 8vw;
+    background-color: aquamarine;
+    color: black;
+    font-size: 1.2vw;
+    border-radius: 3vw;
+    border: none;
+    float: right;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.data_fetch_2:hover{
+    opacity: 0.7;
+}
+.data_fetch_2:active{
+    opacity: 0.5;
+}
+.book_image_thing_2{
+    font-size: 2vw;
+    display: flex;
+}
+.book_image_new_2{
+    margin-left: 1%;
+    font-size: 1vw;
+    width: 30vw;
+}
+.image_preview_2{
+    height: 10vw;
+    width: 7vw;
+}
+.save_book_info{
+    margin-left: 93%;
+    height: 3vw;
+    width: 6vw;
+    font-size: 1.5vw;
+    border-radius: 1.5vw;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.save_book_info:hover{
+    opacity: 0.7;
+}
+.save_book_info:active{
+    opacity: 0.5;
+}
+.book_id_new_thingy{
+    font-size: 2vw;
+}
+.Non_FICTION{
+    margin-left: 1%;
+}
+
+.user_holds{
+    background-color: rgb(83, 165, 83);
+    font-size: 1vw;
+    padding-bottom: 1vw;
+    padding: 0.5vw;
+    margin-top: 2%;
+    border-radius: 3vw;
+    
+}
+.cancel_hold{
+    margin-top: -5%;
+    height: 3vw;
+    width: 6vw;
+    float: right;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: rgb(255, 0, 0);
+    text-align: center;
+    border: solid rgb(255, 0, 0) 0.2vw;
+    margin-right: 8vw;
+    transition: all 0.25s;
+}
+.cancel_hold:hover{
+    background-color: red;
+    color: white;
+    border-color: none;
+}
+.cancel_hold:active{
+    opacity: 0.5;
+}
+.book_action{
+    margin-top: -5%;
+    height: 3vw;
+    width: 6vw;
+    float: right;
+    font-size: 1vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    color: green;
+    text-align: center;
+    border: solid green 0.2vw;
+    transition: all 0.25s;
+}
+.book_action:hover{
+    background-color: green;
+    color: white;   
+}
+.book_action:active{
+    opacity: 0.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

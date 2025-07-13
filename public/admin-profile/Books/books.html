@@ -14,6 +14,110 @@
     <div class="loading_wrapper">
             <dotlottie-player src="https://lottie.host/820a0d74-1896-49f0-9703-19e3e1e977c3/JLRi1A8G19.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
     </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="model_label_thingy">Add Book</h1>
+            <div class="isbn_input">
+                <label for="isbn_new" class="label_isbn_new">ISBN: </label>
+                <input type="text" class="isbn_new" id="isbn_new">
+            </div>
+            <div class="tittle_input">
+                <label for="tittle_new" class="label_tittle_new">Tittle: </label>
+                <input type="text" class="tittle_new" id="tittle_new">
+            </div>
+            <div class="author_input">
+                <label for="author_new">Author: </label>
+                <input type="text" class="author_new" id="author_new">
+            </div>
+            <div class="book_id_input">
+                <label for="book_id_new">ID: </label>
+                <input type="number" class="book_id_new" id="book_id_new">
+                <button class="generate_id">Generate</button>
+                <button class="validate_id">Validate</button>
+            </div>
+            <div class="book_condition">
+                <form class="book_condition_thingy">
+                    <label for="condition_new">Book Condition: </label>
+                    <select name="condition_new" id="condition_new" class="condition_new">
+                        <option value="New">New</option>
+                        <option value="Good">Good</option>
+                        <option value="Okay">Okay</option>
+                        <option value="Bad">Bad</option>
+                    </select>
+                </form>
+            </div>
+            <div class="book_genre_thingy">
+                <label for="genre_new">Genre: </label>
+                <select name="genre_new" id="genre_new" class="genre_new">
+                    <option value="jfic">JFIC</option>
+                    <option value="fic">FIC</option>
+                    <option value="ya">YA</option>
+                </select>
+            </div>
+            <button class="data_fetch">Fetch Data</button>
+            <div class="book_image_thing">
+                <label for="book_image_new">Book Image Link: </label>
+                <input type="text" class="book_image_new" id="book_image_new">
+            </div>
+            <img src="https://static.vecteezy.com/system/resources/previews/005/720/408/original/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg" class="image_preview">
+            <div class="book_summary_thingy">
+                <h1 class="book_summary_header">Book Summary: </h1>
+                <textarea rows="10" cols="50" class="book_summary_new" id="book_summary_new"></textarea>
+            </div>
+            <button class="save">Save</button>  
+        </div>
+    </div>
+    <div class="modal_2">
+        <div class="modal_2_content">
+            <span class="close_modal_2">&times;</span>
+                <div class="modal_2_isbn_input">
+                    <label for="isbn_new_2" class="label_isbn_new_2">ISBN: </label>
+                    <input type="text" class="isbn_new_2" id="isbn_new_2">
+                </div>
+                <div class="tittle_input_2">
+                    <label for="tittle_new_2" class="label_tittle_new">Tittle: </label>
+                    <input type="text" class="tittle_new_2" id="tittle_new_2">
+                </div>
+                <div class="author_input_2">
+                    <label for="author_new_2">Author: </label>
+                    <input type="text" class="author_new_2" id="author_new_2">
+                </div>
+                <div class="book_condition_2">
+                    <form class="book_condition_thingy">
+                        <label for="condition_new_2">Book Condition: </label>
+                        <select name="condition_new_2" id="condition_new_2" class="condition_new_2">
+                            <option value="New">New</option>
+                            <option value="Good">Good</option>
+                            <option value="Okay">Okay</option>
+                            <option value="Bad">Bad</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="book_genre_thingy_2">
+                    <label for="genre_new_2">Genre: </label>
+                    <select name="genre_new_2" id="genre_new_2" class="genre_new_2">
+                        <option value="jfic">JFIC</option>
+                        <option value="fic">FIC</option>
+                        <option value="ya">YA</option>
+                        <option value="nfic">NFIC</option>
+                    </select>
+                </div>  
+                <button class="data_fetch_2">Fetch Data</button>
+                <span class="book_id_new_thingy">THINGY</span>
+                <div class="book_image_thing_2">
+                    <label for="book_image_new_2">Book Image Link: </label>
+                    <input type="text" class="book_image_new_2" id="book_image_new_2">
+                </div>
+                <img src="https://static.vecteezy.com/system/resources/previews/005/720/408/original/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg" class="image_preview_2">
+                <div class="book_summary_thingy_2">
+                    <h1 class="book_summary_header_2">Book Summary: </h1>
+                    <textarea rows="10" cols="50" class="book_summary_2" id="book_summary_2"></textarea>
+                </div>
+                <button class="save_book_info">Save</button>
+                <div class="container_for_holds"></div>
+        </div>
+    </div>
     <!-- The Header Admin Square -->
     <div class="header-square">
         <div class="buttons-profile">
@@ -33,6 +137,17 @@
             <h1 class="book_date"></h1>
             <button class="edit">Edit</button>
             <button class="delete">Delete</button>
+        </div>
+    </template>
+    <template id="user_hold">
+        <div class="user_holds">
+            <h1 class="user_type"></h1>
+            <h1 class="user_name"></h1>
+            <h1 class="user_email"></h1>
+            <h1 class="book_date_2"></h1>
+            <button class="cancel_hold"></button>
+            <button class="book_action"></button>
+
         </div>
     </template>
     <div class="book_container_">
@@ -68,7 +183,11 @@
             </div>
             <div class="Young_Adult">
                 <input type="checkbox" id="YAm" name="YAm" class="YAm" value="YAm">
-                <label for="YAm" >Young Adult</label><br>
+                <label for="YAm" >YA</label><br>
+            </div>
+            <div class="Non_FICTION">
+                <input type="checkbox" id="NFICm" name="NFICm" class="NFICm" value="NFICm">
+                <label for="NFICm">NFIC</label><br>
             </div>
             <div class="book_available">
                 <input type="checkbox" id="availy" name="availy" class="availy" value="availy">

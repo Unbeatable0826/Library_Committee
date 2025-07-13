@@ -310,20 +310,25 @@ font-size: 1.5vw;
 margin-left: 25%;
 }
 .Juvenile_FICTION{
-
 color: white;
 margin-left: 3vh;
 font-size: 1.5vw;
 
 }
 .Fiction{
-margin-top: 10%;
+margin-top: 6%;
 color: white;
 margin-left: 3vh;
 font-size: 1.5vw;
 }
 .Young_Adult{       
-margin-top: 10%;
+margin-top: 6%;
+color: white;
+margin-left: 3vh;
+font-size: 1.5vw;
+}
+.Non_Fiction{       
+margin-top: 6%;
 color: white;
 margin-left: 3vh;
 font-size: 1.5vw;
@@ -333,7 +338,7 @@ font-size: 1.5vw;
     display: none;
 }
 .loading_wrapper{
-    position: absolute;
+    position: fixed;
     display: flex;
     top: 0;
     left: 0;
@@ -575,6 +580,10 @@ font-size: 1.5vw;
         font-size: 5vw;
     }
     .Young_Adult{
+        margin-left: 5%;
+        font-size: 5vw;
+    }
+    .Non_Fiction{
         margin-left: 5%;
         font-size: 5vw;
         padding-bottom: 5vw;

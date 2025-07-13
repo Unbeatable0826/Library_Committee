@@ -495,7 +495,51 @@ color: white;
 .user{
     margin-top: 0.5%;
 }
-
-
-
-
+.line_2{
+    display: flex;
+    height: 2vw;
+    gap: 70vw;
+}
+.notepad_modal_open{
+  cursor: pointer;
+}
+.modal_4{
+    transition: all 1s;
+    position: fixed; 
+    display: none;
+    z-index: 3; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal_4_content{
+    background-color: rgb(97, 95, 97);
+    margin: 15% auto; 
+    padding: 20px;
+    min-height: 32vw;
+    border: 1px solid #888;
+    width: 25%; 
+    border-radius: 3vw;
+    color: white;
+}
+.close_modal_4{
+    color: #ffffff;
+    float: right;
+    margin-right: -4vh;
+    font-size: 40px;
+    font-weight: bold;
+    width: 7vh;
+    margin-top: -2vh;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+.modal_4_h{
+    margin-left: 37%;
+}
+.modal_4_notes{
+    margin-left: 1%;
+}
