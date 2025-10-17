@@ -150,7 +150,7 @@ usersList.addEventListener('click', async(event) => {
                     clone.querySelector('.book_tittle').style.color = "red  "
                 }
                 clone.querySelector('.book_date').textContent = "Due By: " + poppy.toLocaleDateString();
-                clone.querySelector('.book_tittle').textContent = "Tittle: " + curr_book.tittle + " | BOOKID: " + String(user_data[book].split("&&")[1]);
+                clone.querySelector('.book_tittle').textContent = "Title: " + curr_book.tittle + " | BOOKID: " + String(user_data[book].split("&&")[1]);
                 clone.querySelector('.book_author').textContent = "Author: " + curr_book.author;
                 clone.querySelector('.cancel_hold').style.display = "none";
                 clone.querySelector('.book_action').textContent = "Check In";
@@ -189,7 +189,7 @@ usersList.addEventListener('click', async(event) => {
                     }
                     clone.querySelector('.book_date').textContent = "" + thingyss + " | Number in Holds: " + nummy;
                 }
-                clone.querySelector('.book_tittle').textContent = "Tittle: " + curr_book.tittle + " | BOOKID: " + String(user_data[book].split("&&")[1]);
+                clone.querySelector('.book_tittle').textContent = "Title: " + curr_book.tittle + " | BOOKID: " + String(user_data[book].split("&&")[1]);
                 clone.querySelector('.book_author').textContent = "Author: " + curr_book.author;
                 clone.querySelector('.cancel_hold').textContent = "Cancel " + String(user_data[book].split("&&")[0]);
                 clone.querySelector('.book_action').dataset.bookid = clone.querySelector('.book_author').dataset.bookid = String(user_data[book].split("&&")[1]);
@@ -263,7 +263,7 @@ check_avail_but.addEventListener('click', async() => {
         let thingyp = await get(booky)
         if (thingyp.exists() && book_id != ""){
             const data_currr = thingyp.val()
-            modal_2_tittle.textContent = "Tittle: " + data_currr.tittle;
+            modal_2_tittle.textContent = "Title: " + data_currr.tittle;
             modal_2_author.textContent = "Author: " + data_currr.author;
             modal_2_genre.textContent = "Genre: " + data_currr.genre;
            if (data_currr.avail){
@@ -643,6 +643,7 @@ user_info_modal.addEventListener('click', async(event) => {
         let line;
         const confirmation = confirm("Are you sure you want to delete this hold/pickup for bookID: " + String(event.target.dataset.bookid));
         if (confirmation){
+            alert("HOLA")
             for (let x = 0; x < curr_book.holds.length; x++){
             if (curr_book.holds[x].includes(userId)){
                 line = x;
@@ -661,6 +662,7 @@ user_info_modal.addEventListener('click', async(event) => {
                 const userDocRef = doc(db, "users", userId);
                 const docSnapshot = await getDoc(doc(db, "users", userId));
                 const docSnap = docSnapshot.data()    
+                console.log(docSnap)
                 if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
                     await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
                     await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
@@ -736,6 +738,29 @@ user_info_modal.addEventListener('click', async(event) => {
                     alert("Successfully Deleted Hold/Pickup")
                 }else{
                     alert("MAJOR ERROR IN DATABASE PLEASE INFORM ADMIN");
+                }
+            }else if (hold_info[0] == "hold"){
+                update(bookref, {holds: curr_book.holds,})
+                const userDocRef = doc(db, "users", userId);
+                const docSnapshot = await getDoc(doc(db, "users", userId));
+                const docSnap = docSnapshot.data()    
+                console.log(docSnap)
+                if (docSnap.hold1.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold1: docSnap.hold2}, {merge: true});
+                    await setDoc(userDocRef, {hold1_time: docSnap.hold2_time}, {merge: true});
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
+                }
+                if (docSnap.hold2.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold2: docSnap.hold3}, {merge: true});
+                    await setDoc(userDocRef, {hold2_time: docSnap.hold3_time}, {merge: true});
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true}); 
+                }if (docSnap.hold3.split("&&")[1] == String(event.target.dataset.bookid)){
+                    await setDoc(userDocRef, {hold3: ""}, {merge: true});
+                    await setDoc(userDocRef, {hold3_time: 0}, {merge: true});
                 }
             }
 

@@ -379,7 +379,6 @@ bookCardContainer.addEventListener('click', (event) => {
 modal_pickup.addEventListener('click', async() =>{
     const bookId = Number(card_thingy.dataset.bookId);
     const book = books.find(b => b.id == bookId);
-
         const confirmation = confirm("You are putting " + book.tittle + " on hold, you must pick it up within 7 days of today")
         const bookREF = ref(rtdb, 'books/' + bookId);
         const book_snapshot = await get(bookREF);
@@ -418,7 +417,9 @@ modal_pickup.addEventListener('click', async() =>{
             if(hold3u){
                 hold3 = hold3u.split("&&")[1];
             }else{hold3 = ""}
-        }        
+        }else{
+            window.href.location = ""
+        }
         if ((confirmation) ==  true){
             if (book.available && ![book1, book2, book3, hold1, hold2, hold3].includes(book.id) && (hold1 == "" || hold2 == "" || hold3== "")){
                 loading_thingy.style.visibility = "visible";

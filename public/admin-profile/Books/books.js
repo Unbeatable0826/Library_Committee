@@ -680,7 +680,7 @@ data_fetch_2.addEventListener('click', async () => {
                 book_image_new_2.value = "https://covers.openlibrary.org/b/olid/"+ book_image_from_thingy +".jpg"
                 updates_image_thingy_2();
             }else{
-                console.log('https://openlibrary.org/search.json?q=' + thingy.items[0].volumeInfo.title.replaceAll(" ", "%20") + '&author=' + thingy.items[0].volumeInfo.authors[0].replaceAll(" ", "%20"))
+                console.log('https://openlibrary.org/search.json?q=' + thingy.items[0].volumeInfo.title.replaceAll(" ", "%20") + '&author=' + thingy.items[0].volumeInfo.authors[0].replaceAll(" ", "%20") )
                 const stuffy_3 = await fetch('https://openlibrary.org/search.json?q=' + thingy.items[0].volumeInfo.title.substring(0, 20).replaceAll(" ", "%20") + '&author=' + thingy.items[0].volumeInfo.authors[0].replaceAll(" ", "%20"));
                 const stuffy_4 = await stuffy_3.json();
                 try{
