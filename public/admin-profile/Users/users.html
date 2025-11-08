@@ -35,7 +35,9 @@
                 <label for="search" class="label-search">Search </label>
                 <input type="search" id="search" class="search" >
             </div>
+            <button class="new_user">Add User</button>
             <img  src="https://img.icons8.com/pastel-glyph/64/note.png" alt="note" class="notepad_modal_open">
+            
         </div>
         <div class="user_card_container"></div>
     </div>
@@ -145,10 +147,21 @@
             <span class="close_modal_4">&times;</span>
             <h1 class="modal_4_h">Notes</h1>
             <textarea class="modal_4_notes" rows="30" cols="47"></textarea>
-
-
-
-
+        </div>
+    </div>
+    <div class="modal_5">
+        <div class="modal_5_content">
+            <span class="close_modal_5">&times;</span>
+            <h1>User Signup</h1>
+            <form>
+                <input type="email" id="email" placeholder="Email" required class="email_5">
+                <br>
+                <input type="password" id="password" placeholder="Password" class="password_5">
+                <br>
+                <input type="text" id="name" placeholder="Name" class="name_5" required>
+                <br>
+                <input type="submit" id="submit" class="submit-button" value="Sign up">
+            </form>
         </div>
     </div>
 </body>

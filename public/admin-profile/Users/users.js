@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut, updateEmail, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut, updateEmail, sendPasswordResetEmail , createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 import { getDatabase, ref, get , update, push, set} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
@@ -230,6 +230,8 @@ usersList.addEventListener('click', async(event) => {
             const request = await response.text()
             if (request.includes("IT WORK")){
                 alert("ACCOUNT DELETION SUCCESS")
+                loading_thingy.style.visibility = "hidden";
+                window.location.href = "";
             }else{
                 alert("ERROR ,alert Admin")
             }
@@ -799,3 +801,74 @@ async function update_notes_thingy() {
 }
 
 modal_4_notes.addEventListener('input', debounce(update_notes_thingy, 1000));
+const modal_5 = document.querySelector('.modal_5');
+const new_user = document.querySelector('.new_user');
+new_user.addEventListener('click', () => {
+    modal_5.style.display = "block";
+})
+const close_modal_5 = document.querySelector('.close_modal_5');
+close_modal_5.addEventListener('click', () => {
+    modal_5.style.display = "none";
+})
+const submit = document.querySelector('.submit-button');
+submit.addEventListener('click', async(event) => {
+    event.preventDefault();
+    const confirmation = confirm("Are you sure you want to create a new user ");
+    if (confirmation){
+        const email  = document.querySelector('.email_5').value;
+        const password = document.querySelector('.password_5').value;
+        const  name = document.querySelector('.name_5').value;
+        loading_thingy.style.visibility = "hidden";
+        var secondaryconfig = initializeApp(firebaseConfig, "Secondary");
+        const auth_2 = getAuth(secondaryconfig);
+        createUserWithEmailAndPassword(auth_2, email, password).then((userCredential) => {
+                const user = userCredential.user;
+                setDoc(doc(db, "users", user.uid), {
+                  email: user.email,
+                  uid: user.uid,
+                  name: name,
+                  Books: 0,
+                  admin: false,
+                  book1: "",
+                  book2: "",
+                  book3: "",
+                  hold1: "",
+                  hold2: "",
+                  hold3: "",
+                  book1_time: 0,
+                  book2_time: 0,
+                  book3_time: 0,
+                  hold1_time: 0,
+                  hold2_time: 0,
+                  hold3_time: 0,
+        
+                }).then(async() => {
+                    let response = await fetch("https://on-request-signup-email-448364021608.us-central1.run.app/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify({
+                        'email': "" + email,
+                        'name': "" + name,
+                    })
+                    }) 
+                    const response_now = await response.text()
+                    if (response_now.includes("IT WORKSSSSSSSSSS")){
+                      loading_thingy.style.visibility = "hidden";
+                      alert("PERSON CREATED SUCCESSFULLYYYY");
+                      window.location.href="";
+                    }else{
+                      loading_thingy.style.visibility = "hidden";
+                      alert("ERROR");
+                    }
+                });
+              })
+              .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+                loading_thingy.style.visibility = "hidden";
+        
+              });
+    }
+})
