@@ -506,7 +506,17 @@ color: white;
     width: 10vw;
     font-size: 0.75vw;
     height: 2vw;
-    gap: 70vw;
+    margin-left: 68vw;
+    outline: none;
+    color: blue ;
+    border-color: blue;
+    transition: all 0.5s;
+    outline: solid blue 0.08vw;
+}
+.new_user:hover{
+    background-color: blue;
+    color: white;
+    border: none;
 }
 .notepad_modal_open{
   cursor: pointer;
